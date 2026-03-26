@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ley 41 de 1998 — Ley General de Ambiente de la República de Panamá</title>
+  <meta name="description" content="Texto Único de la Ley 41 de 1 de julio de 1998, General de Ambiente de la República de Panamá. Incluye reformas de las Leyes 18/2003, 44/2006, 65/2010 y 8/2015.">
+  <style>
+    :root{
+      --primary:#005C2B;--secondary:#C8A951;--accent:#CC0001;
+      --bg:#F5F7FA;--text:#1A1A2E;--card-bg:#FFFFFF;
+      --sidebar-w:300px;--topbar-h:56px;--bottomnav-h:60px;
+      --radius:8px;--shadow:0 2px 12px rgba(0,0,0,0.10);
+      --shadow-lg:0 8px 32px rgba(0,0,0,0.16);--transition:0.22s ease;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+    a{color:var(--primary);text-decoration:none}
+    a:hover{text-decoration:underline}
+    button{cursor:pointer;font-family:inherit}
+
+    /* TOPBAR */
+    .topbar{position:fixed;top:0;left:0;right:0;height:var(--topbar-h);background:var(--primary);color:#fff;display:flex;align-items:center;gap:8px;padding:0 12px;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,0.25)}
+    .topbar-stripe{width:4px;height:32px;background:linear-gradient(180deg,#C8A951,#CC0001);border-radius:2px;flex-shrink:0}
+    .hamburger{background:none;border:none;color:#fff;font-size:1.4rem;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:6px;flex-shrink:0;transition:background var(--transition)}
+    .hamburger:hover{background:rgba(255,255,255,0.15)}
+    .breadcrumb{flex:1;display:flex;align-items:center;gap:4px;font-size:0.78rem;overflow:hidden;white-space:nowrap}
+    .breadcrumb a{color:rgba(255,255,255,0.85)}
+    .breadcrumb a:hover{color:var(--secondary);text-decoration:none}
+    .breadcrumb .sep{color:rgba(255,255,255,0.4);padding:0 2px}
+    .topbar-search{display:flex;align-items:center;gap:4px;background:rgba(255,255,255,0.15);border-radius:20px;padding:4px 10px}
+    .topbar-search input{background:none;border:none;color:#fff;font-size:0.82rem;width:140px;outline:none}
+    .topbar-search input::placeholder{color:rgba(255,255,255,0.55)}
+    .topbar-search button{background:none;border:none;color:#fff;font-size:0.9rem}
+    .goto-art{display:flex;align-items:center;gap:4px;background:rgba(255,255,255,0.15);border-radius:20px;padding:4px 10px}
+    .goto-art input{background:none;border:none;color:#fff;font-size:0.82rem;width:50px;outline:none;text-align:center}
+    .goto-art input::placeholder{color:rgba(255,255,255,0.55)}
+    .goto-art button{background:none;border:none;color:#fff;font-size:0.9rem}
+    .search-results-bar{display:none;position:fixed;top:var(--topbar-h);left:0;right:0;background:var(--primary);color:#fff;padding:6px 16px;z-index:190;align-items:center;gap:10px;font-size:0.82rem}
+    .search-results-bar.visible{display:flex}
+    .search-results-bar button{background:rgba(255,255,255,0.2);border:none;color:#fff;padding:2px 10px;border-radius:12px;font-size:0.8rem}
+    .search-results-bar .close-btn{margin-left:auto;background:none;font-size:1rem}
+    mark.highlight{background:#FFD54F;color:#1A1A2E;border-radius:2px}
+    mark.highlight.current{background:#CC0001;color:#fff}
+
+    /* SIDEBAR */
+    .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:149}
+    .overlay.active{display:block}
+    .app-sidebar{position:fixed;top:var(--topbar-h);left:0;bottom:0;width:var(--sidebar-w);background:var(--card-bg);border-right:1px solid #e0e0e0;z-index:150;transform:translateX(-100%);transition:transform var(--transition);overflow-y:auto;display:flex;flex-direction:column}
+    .app-sidebar.open{transform:translateX(0)}
+    .sidebar-header{padding:14px 16px;font-weight:700;font-size:0.9rem;color:var(--primary);border-bottom:2px solid var(--secondary);background:linear-gradient(135deg,#fff 0%,#f5f7fa 100%);flex-shrink:0}
+    .sidebar-header small{display:block;font-size:0.7rem;color:#888;font-weight:400;margin-top:2px}
+    .sidebar-nav{padding:8px 0;flex:1}
+    .sidebar-nav-item{display:flex;align-items:center;gap:10px;width:100%;padding:9px 16px;background:none;border:none;font-size:0.77rem;color:var(--text);text-align:left;cursor:pointer;transition:background var(--transition);border-left:3px solid transparent;line-height:1.3}
+    .sidebar-nav-item:hover{background:#f5f7fa}
+    .sidebar-nav-item.active{background:rgba(0,92,43,0.07);color:var(--primary);font-weight:700;border-left-color:var(--primary)}
+    .item-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+    .sidebar-divider{height:1px;background:#eee;margin:4px 16px}
+    .sidebar-section-label{font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.09em;padding:10px 16px 4px;color:var(--primary)}
+
+    /* LAYOUT */
+    .app-shell{display:flex;flex-direction:column;min-height:100vh}
+    main.main-content{margin-top:var(--topbar-h);min-height:calc(100vh - var(--topbar-h));padding-bottom:var(--bottomnav-h)}
+    .page{display:block;visibility:hidden;height:0;overflow:hidden;pointer-events:none}
+    .page.active{visibility:visible;height:auto;overflow:visible;pointer-events:auto}
+
+    /* PORTADA */
+    .portada-inner{max-width:960px;margin:0 auto;padding:40px 20px}
+    .portada-hero{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:32px}
+    .portada-escudo{font-size:4rem;margin-bottom:12px}
+    .portada-title{font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.4rem,4vw,2.2rem);font-weight:700;color:var(--primary);line-height:1.2;margin-bottom:8px}
+    .portada-subtitle{font-size:0.95rem;color:#666;margin-bottom:4px}
+    .portada-meta{font-size:0.82rem;color:#888;line-height:1.8;margin-bottom:8px}
+    .portada-reformas{background:#f0f7f3;border:1px solid #b2d8bf;border-radius:var(--radius);padding:10px 16px;font-size:0.78rem;color:#444;margin-bottom:20px;text-align:left;max-width:600px}
+    .portada-reformas strong{color:var(--primary);display:block;margin-bottom:4px}
+    .portada-titulo-section{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:14px;overflow:hidden}
+    .portada-titulo-header{padding:11px 16px;font-weight:700;font-size:0.88rem;background:#fafafa;border-bottom:1px solid #f0f0f0;border-left:4px solid var(--t-color,var(--primary))}
+    .portada-caps{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px;padding:12px}
+    .portada-cap-btn{display:flex;flex-direction:column;align-items:flex-start;padding:11px 14px;border:none;background:#fff;border-left:4px solid var(--t-color,var(--primary));border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,0.07);cursor:pointer;transition:transform var(--transition),box-shadow var(--transition);text-align:left}
+    .portada-cap-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+    .pt-num{font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--t-color,var(--primary));margin-bottom:3px}
+    .pt-name{font-size:0.79rem;font-weight:600;color:var(--text);line-height:1.3}
+
+    /* ÍNDICE */
+    .indice-header{background:linear-gradient(135deg,var(--primary) 0%,#1B7A3E 100%);color:#fff;padding:28px 24px 20px;border-bottom:3px solid var(--secondary)}
+    .indice-header h1{font-family:Georgia,serif;font-size:clamp(1.2rem,3vw,1.8rem);margin-bottom:4px}
+    .indice-header p{font-size:0.85rem;opacity:.85}
+    .indice-search-bar{max-width:500px;margin:14px auto 0;display:flex;background:rgba(255,255,255,0.15);border-radius:24px;padding:6px 14px;gap:8px}
+    .indice-search-bar input{flex:1;background:none;border:none;color:#fff;font-size:0.9rem;outline:none}
+    .indice-search-bar input::placeholder{color:rgba(255,255,255,0.6)}
+    .indice-titulos{max-width:960px;margin:0 auto;padding:20px 16px 80px;display:flex;flex-direction:column;gap:12px}
+    .indice-titulo-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;border-top:3px solid var(--t-color,var(--primary))}
+    .indice-titulo-head{display:flex;align-items:center;gap:10px;padding:13px 16px;width:100%;background:none;border:none;cursor:pointer;text-align:left;transition:background var(--transition)}
+    .indice-titulo-head:hover{background:#f5f7fa}
+    .itc-num{font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--t-color,var(--primary));min-width:60px}
+    .itc-name{flex:1;font-size:0.85rem;font-weight:600;color:var(--text);line-height:1.4;padding:0 8px}
+    .itc-arrow{color:#aaa;font-size:0.8rem;transition:transform var(--transition)}
+    .indice-titulo-head.open .itc-arrow{transform:rotate(90deg)}
+    .indice-titulo-body{display:none;padding:4px 16px 12px;border-top:1px solid #f0f0f0}
+    .indice-titulo-body.open{display:block}
+    .indice-cap-item{font-size:0.8rem;color:#555;padding:5px 0;display:flex;align-items:center;gap:8px;cursor:pointer;border-bottom:1px solid #f8f8f8}
+    .indice-cap-item:hover{color:var(--primary)}
+    .indice-cap-item:last-child{border-bottom:none}
+    .cap-dot{width:6px;height:6px;border-radius:50%;background:var(--t-color,#aaa);flex-shrink:0}
+
+    /* TEXTO */
+    .texto-inner{max-width:860px;margin:0 auto;padding:20px 20px 80px}
+    .titulo-section{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:24px;overflow:hidden;border-top:4px solid var(--t-color,var(--primary))}
+    .titulo-header{background:linear-gradient(135deg,rgba(0,92,43,0.06) 0%,transparent 100%);padding:16px 20px;border-bottom:1px solid #f0f0f0}
+    .titulo-num{font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--t-color,var(--primary));display:block;margin-bottom:4px}
+    .titulo-name{font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:var(--text)}
+    .cap-section{border-left:3px solid var(--t-color,var(--primary));margin:12px 18px;border-radius:0 6px 6px 0;background:#fafafa;overflow:hidden}
+    .cap-header{padding:9px 14px;background:#f5f5f5;border-bottom:1px solid #eee}
+    .cap-num{font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--t-color,var(--primary));display:block;margin-bottom:2px}
+    .cap-name{font-size:0.85rem;font-weight:600;color:var(--text)}
+    .articulo{padding:14px 18px;border-bottom:1px solid #f0f0f0;transition:background var(--transition)}
+    .articulo:last-child{border-bottom:none}
+    .articulo:target,.articulo.highlight-art{background:#FFF9E6;border-left:3px solid var(--secondary)}
+    .art-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+    .art-num{font-size:0.74rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--primary);background:rgba(0,92,43,0.09);padding:3px 10px;border-radius:10px}
+    .art-body{font-size:0.88rem;line-height:1.8;color:#333}
+    .art-body .def-term{font-style:italic;font-weight:600;color:var(--primary)}
+    .art-body .def-list{margin:8px 0 0 16px;display:flex;flex-direction:column;gap:6px}
+    .art-body .def-item{display:flex;gap:8px;font-size:0.86rem;line-height:1.7}
+    .art-body .def-item .def-n{font-weight:700;color:var(--primary);min-width:22px;flex-shrink:0}
+    .art-note{display:block;margin-top:8px;font-size:0.78rem;color:#888;font-style:italic;background:#f9f9f9;padding:6px 10px;border-radius:4px;border-left:3px solid #ddd}
+
+    /* BOTTOM NAV */
+    .bottom-nav{position:fixed;bottom:0;left:0;right:0;height:var(--bottomnav-h);background:var(--card-bg);border-top:1px solid #e0e0e0;display:flex;z-index:100;box-shadow:0 -2px 8px rgba(0,0,0,0.08)}
+    .bnav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:none;background:none;color:#888;font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;transition:color var(--transition),background var(--transition);padding:4px;border-top:2px solid transparent}
+    .bnav-btn.active{color:var(--primary);border-top-color:var(--primary)}
+    .bnav-btn:hover{background:#f5f7fa}
+    .bnav-icon{font-size:1.3rem}
+
+    /* BÚSQUEDA */
+    .busqueda-inner{max-width:860px;margin:0 auto;padding:20px 20px 80px}
+    .busqueda-hero{background:linear-gradient(135deg,var(--primary) 0%,#1B7A3E 100%);color:#fff;padding:28px 24px;border-radius:var(--radius);margin-bottom:20px;text-align:center}
+    .busqueda-hero h2{font-family:Georgia,serif;font-size:1.5rem;margin-bottom:8px}
+    .busqueda-form{display:flex;gap:8px;max-width:500px;margin:0 auto}
+    .busqueda-form input{flex:1;padding:10px 16px;border:none;border-radius:24px;font-size:0.9rem;outline:none;color:#333}
+    .busqueda-form button{padding:10px 20px;background:var(--secondary);border:none;border-radius:24px;font-weight:700;cursor:pointer;color:#333}
+    .busqueda-results{display:flex;flex-direction:column;gap:10px}
+    .result-card{background:var(--card-bg);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 18px;cursor:pointer;transition:box-shadow var(--transition),transform var(--transition);border-left:4px solid var(--primary)}
+    .result-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-1px)}
+    .result-art-num{font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--primary);margin-bottom:5px}
+    .result-text{font-size:0.85rem;color:#555;line-height:1.6}
+    .no-results{text-align:center;color:#999;padding:40px 20px;font-size:0.9rem}
+
+    @media(max-width:480px){
+      .topbar-search{display:none}
+      .goto-art{display:none}
+    }
+  </style>
+</head>
+<body>
+<div class="app-shell">
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="topbar-stripe"></div>
+  <button class="hamburger" onclick="toggleSidebar()" aria-label="Menú">&#9776;</button>
+  <nav class="breadcrumb">
+    <a href="#" onclick="showPage('portada');return false;">Ley 41 de 1998</a>
+    <span class="sep" id="bc-sep" style="display:none">›</span>
+    <span id="bc-current"></span>
+  </nav>
+  <div class="topbar-search">
+    <input type="search" id="search-input" placeholder="Buscar en la Ley..." onkeydown="if(event.key==='Enter')runSearch()">
+    <button onclick="runSearch()" title="Buscar">&#128269;</button>
+  </div>
+  <div class="goto-art">
+    <input type="number" id="goto-input" placeholder="Art.#" min="1" max="126" onkeydown="if(event.key==='Enter')gotoArt()">
+    <button onclick="gotoArt()" title="Ir a artículo">&#8594;</button>
+  </div>
+</header>
+<div class="search-results-bar" id="search-results-bar">
+  <span id="search-count"></span>
+  <button onclick="prevMatch()">&#9650; Anterior</button>
+  <button onclick="nextMatch()">&#9660; Siguiente</button>
+  <button class="close-btn" onclick="clearSearch()">&#10005;</button>
+</div>
+
+<!-- SIDEBAR -->
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+<aside class="app-sidebar" id="sidebar">
+  <div class="sidebar-header">
+    🌿 Ley General de Ambiente
+    <small>Ley 41 de 1 de julio de 1998 · 126 artículos</small>
+  </div>
+  <nav class="sidebar-nav">
+    <button class="sidebar-nav-item" onclick="showPage('portada')"><span class="item-dot" style="background:var(--secondary)"></span>Portada</button>
+    <button class="sidebar-nav-item" onclick="showPage('indice')"><span class="item-dot" style="background:#1B7A3E"></span>Índice General</button>
+    <button class="sidebar-nav-item" onclick="showPage('busqueda')"><span class="item-dot" style="background:#00838F"></span>Búsqueda Avanzada</button>
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-section-label">Título Preliminar</div>
+    <button class="sidebar-nav-item" onclick="goToTitulo('t-prelim')"><span class="item-dot" style="background:#005C2B"></span>Disposiciones Generales (Arts. 1–2)</button>
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-section-label" style="color:#1B7A3E">Título I</div>
+    <button class="sidebar-nav-item" onclick="goToTitulo('t-1')"><span class="item-dot" style="background:#1B7A3E"></span>Política Nacional de Ambiente (Arts. 3–4)</button>
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-section-label" style="color:#1565C0">Título II</div>
+    <button class="sidebar-nav-item" onclick="goToTitulo('t-2')"><span class="item-dot" style="background:#1565C0"></span>Instrumentos para la Gestión Ambiental (Arts. 5–40)</button>
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-section-label" style="color:#00838F">Título III</div>
+    <button class="sidebar-nav-item" onclick="goToTitulo('t-3')"><span class="item-dot" style="background:#00838F"></span>Salud Ambiental y Desechos Peligrosos (Arts. 41–46)</button>
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-section-label" style="color:#558B2F">Título IV</div>
+    <button class="sidebar-nav-item" onclick="goToTitulo('t-4')"><span class="item-dot" style="background:#558B2F"></span>Recursos Naturales (Arts. 47–81)</button>
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-section-label" style="color:#0277BD">Título V</div>
+    <button class="sidebar-nav-item" onclick="goToTitulo('t-5')"><span class="item-dot" style="background:#0277BD"></span>Cambio Climático (Arts. 82–88)</button>
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-section-label" style="color:#6A1B9A">Título VI</div>
+    <button class="sidebar-nav-item" onclick="goToTitulo('t-6')"><span class="item-dot" style="background:#6A1B9A"></span>Actividades Ambientalmente Sostenibles (Arts. 89–91)</button>
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-section-label" style="color:#E65100">Título VII</div>
+    <button class="sidebar-nav-item" onclick="goToTitulo('t-7')"><span class="item-dot" style="background:#E65100"></span>Comarcas y Pueblos Indígenas (Arts. 92–100)</button>
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-section-label" style="color:#B71C1C">Título VIII</div>
+    <button class="sidebar-nav-item" onclick="goToTitulo('t-8')"><span class="item-dot" style="background:#B71C1C"></span>Responsabilidad Ambiental (Arts. 101–122)</button>
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-section-label" style="color:#37474F">Títulos IX–X</div>
+    <button class="sidebar-nav-item" onclick="goToTitulo('t-9')"><span class="item-dot" style="background:#37474F"></span>Disposiciones Finales (Arts. 123–126)</button>
+  </nav>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+
+<!-- ═══════════════════════════════════════ PORTADA ═══════════════════════════════════════ -->
+<div class="page active" id="page-portada">
+  <div class="portada-inner">
+    <div class="portada-hero">
+      <div class="portada-escudo">🌿</div>
+      <h1 class="portada-title">Texto Único de la Ley 41 de 1998<br>Ley General de Ambiente<br>de la República de Panamá</h1>
+      <p class="portada-subtitle">Ley N° 41 de 1 de julio de 1998</p>
+      <p class="portada-meta">Gaceta Oficial N° 28.131-A · 4 de octubre de 2016<br>126 artículos · 10 Títulos · Texto completo</p>
+      <div class="portada-reformas">
+        <strong>📝 Reformas incorporadas:</strong>
+        Ley 18 de 2003 · Ley 44 de 2006 · Ley 65 de 2010 · Ley 8 de 2015
+      </div>
+    </div>
+
+    <!-- Título Preliminar -->
+    <div class="portada-titulo-section">
+      <div class="portada-titulo-header" style="--t-color:#005C2B">Título Preliminar — Disposiciones Generales</div>
+      <div class="portada-caps">
+        <button class="portada-cap-btn" style="--t-color:#005C2B" onclick="goToTitulo('t-prelim')">
+          <span class="pt-num">Arts. 1–2</span>
+          <span class="pt-name">Objeto, principios y definiciones (79 términos)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Título I -->
+    <div class="portada-titulo-section">
+      <div class="portada-titulo-header" style="--t-color:#1B7A3E">Título I — Política Nacional de Ambiente</div>
+      <div class="portada-caps">
+        <button class="portada-cap-btn" style="--t-color:#1B7A3E" onclick="goToTitulo('t-1')">
+          <span class="pt-num">Capítulo I · Arts. 3–4</span>
+          <span class="pt-name">Estrategias, principios y lineamientos</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Título II -->
+    <div class="portada-titulo-section">
+      <div class="portada-titulo-header" style="--t-color:#1565C0">Título II — Instrumentos para la Gestión Ambiental</div>
+      <div class="portada-caps">
+        <button class="portada-cap-btn" style="--t-color:#1565C0" onclick="goToSection('cap-t2-1')">
+          <span class="pt-num">Capítulo I · Art. 5</span>
+          <span class="pt-name">Evaluación Ambiental Estratégica</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#1565C0" onclick="goToSection('cap-t2-2')">
+          <span class="pt-num">Capítulo II · Art. 6</span>
+          <span class="pt-name">Ordenamiento Ambiental del Territorio</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#1565C0" onclick="goToSection('cap-t2-3')">
+          <span class="pt-num">Capítulo III · Arts. 7–16</span>
+          <span class="pt-name">Evaluación de Impacto Ambiental</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#1565C0" onclick="goToSection('cap-t2-4')">
+          <span class="pt-num">Capítulo IV · Arts. 17–24</span>
+          <span class="pt-name">Normas de Calidad Ambiental</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#1565C0" onclick="goToSection('cap-t2-5')">
+          <span class="pt-num">Capítulo V · Arts. 25–29</span>
+          <span class="pt-name">Supervisión, Control y Fiscalización</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#1565C0" onclick="goToSection('cap-t2-6')">
+          <span class="pt-num">Capítulo VI · Arts. 30–32</span>
+          <span class="pt-name">Información Ambiental</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#1565C0" onclick="goToSection('cap-t2-7')">
+          <span class="pt-num">Capítulo VII · Arts. 33–35</span>
+          <span class="pt-name">Educación Ambiental</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#1565C0" onclick="goToSection('cap-t2-8')">
+          <span class="pt-num">Capítulo VIII · Arts. 36–37</span>
+          <span class="pt-name">Investigación Científica y Tecnológica</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#1565C0" onclick="goToSection('cap-t2-9')">
+          <span class="pt-num">Capítulo IX · Arts. 38–39</span>
+          <span class="pt-name">Desastres y Emergencias Ambientales</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#1565C0" onclick="goToSection('cap-t2-10')">
+          <span class="pt-num">Capítulo X · Art. 40</span>
+          <span class="pt-name">Cuenta Ambiental Nacional</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Título III -->
+    <div class="portada-titulo-section">
+      <div class="portada-titulo-header" style="--t-color:#00838F">Título III — Salud Ambiental y Desechos Peligrosos</div>
+      <div class="portada-caps">
+        <button class="portada-cap-btn" style="--t-color:#00838F" onclick="goToSection('cap-t3-1')">
+          <span class="pt-num">Capítulo I · Art. 41</span>
+          <span class="pt-name">Salud Ambiental</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#00838F" onclick="goToSection('cap-t3-2')">
+          <span class="pt-num">Capítulo II · Arts. 42–46</span>
+          <span class="pt-name">Desechos Peligrosos y Sustancias Potencialmente Peligrosas</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Título IV -->
+    <div class="portada-titulo-section">
+      <div class="portada-titulo-header" style="--t-color:#558B2F">Título IV — Recursos Naturales</div>
+      <div class="portada-caps">
+        <button class="portada-cap-btn" style="--t-color:#558B2F" onclick="goToSection('cap-t4-1')">
+          <span class="pt-num">Capítulo I · Arts. 47–50</span>
+          <span class="pt-name">Naturaleza y Aprovechamiento de los Recursos Naturales</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#558B2F" onclick="goToSection('cap-t4-2')">
+          <span class="pt-num">Capítulo II · Arts. 51–58</span>
+          <span class="pt-name">Áreas Protegidas y Diversidad Biológica</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#558B2F" onclick="goToSection('cap-t4-3')">
+          <span class="pt-num">Capítulo III · Arts. 59–61</span>
+          <span class="pt-name">Patrimonio Forestal del Estado</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#558B2F" onclick="goToSection('cap-t4-4')">
+          <span class="pt-num">Capítulo IV · Arts. 62–63</span>
+          <span class="pt-name">Uso de Suelos</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#558B2F" onclick="goToSection('cap-t4-5')">
+          <span class="pt-num">Capítulo V · Arts. 64–65</span>
+          <span class="pt-name">Calidad del Aire</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#558B2F" onclick="goToSection('cap-t4-6')">
+          <span class="pt-num">Capítulo VI · Arts. 66–70</span>
+          <span class="pt-name">Recursos Hídricos</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#558B2F" onclick="goToSection('cap-t4-7')">
+          <span class="pt-num">Capítulo VII · Arts. 71–74</span>
+          <span class="pt-name">Recursos Hidrobiológicos</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#558B2F" onclick="goToSection('cap-t4-8')">
+          <span class="pt-num">Capítulo VIII · Arts. 75–77</span>
+          <span class="pt-name">Recursos Energéticos</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#558B2F" onclick="goToSection('cap-t4-9')">
+          <span class="pt-num">Capítulo IX · Arts. 78–81</span>
+          <span class="pt-name">Recursos Minerales</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Título V -->
+    <div class="portada-titulo-section">
+      <div class="portada-titulo-header" style="--t-color:#0277BD">Título V — Cambio Climático</div>
+      <div class="portada-caps">
+        <button class="portada-cap-btn" style="--t-color:#0277BD" onclick="goToSection('cap-t5-1')">
+          <span class="pt-num">Capítulo I · Arts. 82–85</span>
+          <span class="pt-name">Adaptación al Cambio Climático</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#0277BD" onclick="goToSection('cap-t5-2')">
+          <span class="pt-num">Capítulo II · Arts. 86–88</span>
+          <span class="pt-name">Mitigación del Cambio Climático Global</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Título VI -->
+    <div class="portada-titulo-section">
+      <div class="portada-titulo-header" style="--t-color:#6A1B9A">Título VI — Promoción de Actividades Ambientalmente Sostenibles</div>
+      <div class="portada-caps">
+        <button class="portada-cap-btn" style="--t-color:#6A1B9A" onclick="goToTitulo('t-6')">
+          <span class="pt-num">Arts. 89–91</span>
+          <span class="pt-name">Ecoturismo, comunidades locales e iniciativa privada sostenible</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Título VII -->
+    <div class="portada-titulo-section">
+      <div class="portada-titulo-header" style="--t-color:#E65100">Título VII — Comarcas y Pueblos Indígenas</div>
+      <div class="portada-caps">
+        <button class="portada-cap-btn" style="--t-color:#E65100" onclick="goToTitulo('t-7')">
+          <span class="pt-num">Arts. 92–100</span>
+          <span class="pt-name">Derechos, consulta y participación de pueblos indígenas</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Título VIII -->
+    <div class="portada-titulo-section">
+      <div class="portada-titulo-header" style="--t-color:#B71C1C">Título VIII — Responsabilidad Ambiental</div>
+      <div class="portada-caps">
+        <button class="portada-cap-btn" style="--t-color:#B71C1C" onclick="goToSection('cap-t8-1')">
+          <span class="pt-num">Capítulo I · Arts. 101–110</span>
+          <span class="pt-name">Obligaciones</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#B71C1C" onclick="goToSection('cap-t8-2')">
+          <span class="pt-num">Capítulo II · Art. 111</span>
+          <span class="pt-name">Responsabilidad Administrativa</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#B71C1C" onclick="goToSection('cap-t8-3')">
+          <span class="pt-num">Capítulo III · Art. 112</span>
+          <span class="pt-name">Fondo de Evaluación y Fiscalización</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#B71C1C" onclick="goToSection('cap-t8-4')">
+          <span class="pt-num">Capítulo IV · Arts. 113–115</span>
+          <span class="pt-name">Responsabilidad Civil</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#B71C1C" onclick="goToSection('cap-t8-5')">
+          <span class="pt-num">Capítulo V · Arts. 116–120</span>
+          <span class="pt-name">Responsabilidad Penal</span>
+        </button>
+        <button class="portada-cap-btn" style="--t-color:#B71C1C" onclick="goToSection('cap-t8-6')">
+          <span class="pt-num">Capítulo VI · Arts. 121–122</span>
+          <span class="pt-name">Jueces de Circuito</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Títulos IX–X -->
+    <div class="portada-titulo-section">
+      <div class="portada-titulo-header" style="--t-color:#37474F">Títulos IX y X — Disposiciones Transitorias y Finales</div>
+      <div class="portada-caps">
+        <button class="portada-cap-btn" style="--t-color:#37474F" onclick="goToTitulo('t-9')">
+          <span class="pt-num">Arts. 123–126</span>
+          <span class="pt-name">Comisiones Consultivas, reglamentación y vigencia</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ ÍNDICE ═══════════════════════════════════════ -->
+<div class="page" id="page-indice">
+  <div class="indice-header">
+    <h1>Índice General — Ley 41 de 1998</h1>
+    <p>Ley General de Ambiente de la República de Panamá · Texto Único (Reformado)</p>
+    <div class="indice-search-bar">
+      <input type="search" id="indice-search" placeholder="Buscar en el índice..." oninput="filterIndice(this.value)">
+      <span>&#128269;</span>
+    </div>
+  </div>
+  <div class="indice-titulos" id="indice-titulos">
+
+    <!-- Título Preliminar -->
+    <div class="indice-titulo-card" style="--t-color:#005C2B" data-search="titulo preliminar disposiciones generales">
+      <button class="indice-titulo-head" onclick="toggleTituloIdx(this,'idx-prelim')">
+        <span class="itc-num">TÍT. PRELIM.</span>
+        <span class="itc-name">Disposiciones Generales</span>
+        <span class="itc-arrow">▶</span>
+      </button>
+      <div class="indice-titulo-body" id="idx-prelim">
+        <div class="indice-cap-item" onclick="goToSection('art-1')"><span class="cap-dot"></span><strong>Art. 1</strong> &nbsp;–&nbsp; Objeto y principios de la Ley</div>
+        <div class="indice-cap-item" onclick="goToSection('art-2')"><span class="cap-dot"></span><strong>Art. 2</strong> &nbsp;–&nbsp; Definiciones (79 términos)</div>
+      </div>
+    </div>
+
+    <!-- Título I -->
+    <div class="indice-titulo-card" style="--t-color:#1B7A3E" data-search="titulo i política nacional ambiente estrategias principios">
+      <button class="indice-titulo-head" onclick="toggleTituloIdx(this,'idx-t1')">
+        <span class="itc-num">TÍTULO I</span>
+        <span class="itc-name">Política Nacional de Ambiente</span>
+        <span class="itc-arrow">▶</span>
+      </button>
+      <div class="indice-titulo-body" id="idx-t1">
+        <div class="indice-cap-item" onclick="goToSection('cap-t1-1')"><span class="cap-dot"></span><strong>Capítulo I</strong> · Arts. 3–4 · Estrategias, principios y lineamientos</div>
+      </div>
+    </div>
+
+    <!-- Título II -->
+    <div class="indice-titulo-card" style="--t-color:#1565C0" data-search="titulo ii instrumentos gestión ambiental evaluación impacto">
+      <button class="indice-titulo-head" onclick="toggleTituloIdx(this,'idx-t2')">
+        <span class="itc-num">TÍTULO II</span>
+        <span class="itc-name">Instrumentos para la Gestión Ambiental</span>
+        <span class="itc-arrow">▶</span>
+      </button>
+      <div class="indice-titulo-body" id="idx-t2">
+        <div class="indice-cap-item" onclick="goToSection('cap-t2-1')"><span class="cap-dot"></span><strong>Cap. I</strong> · Art. 5 · Evaluación Ambiental Estratégica</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t2-2')"><span class="cap-dot"></span><strong>Cap. II</strong> · Art. 6 · Ordenamiento Ambiental del Territorio Nacional</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t2-3')"><span class="cap-dot"></span><strong>Cap. III</strong> · Arts. 7–16 · Evaluación de Impacto Ambiental</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t2-4')"><span class="cap-dot"></span><strong>Cap. IV</strong> · Arts. 17–24 · Normas de Calidad Ambiental</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t2-5')"><span class="cap-dot"></span><strong>Cap. V</strong> · Arts. 25–29 · Supervisión, Control y Fiscalización Ambiental</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t2-6')"><span class="cap-dot"></span><strong>Cap. VI</strong> · Arts. 30–32 · Información Ambiental</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t2-7')"><span class="cap-dot"></span><strong>Cap. VII</strong> · Arts. 33–35 · Educación Ambiental</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t2-8')"><span class="cap-dot"></span><strong>Cap. VIII</strong> · Arts. 36–37 · Programa de Investigación Científica y Tecnológica</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t2-9')"><span class="cap-dot"></span><strong>Cap. IX</strong> · Arts. 38–39 · Desastres y Emergencias Ambientales</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t2-10')"><span class="cap-dot"></span><strong>Cap. X</strong> · Art. 40 · Cuenta Ambiental Nacional</div>
+      </div>
+    </div>
+
+    <!-- Título III -->
+    <div class="indice-titulo-card" style="--t-color:#00838F" data-search="titulo iii salud ambiental desechos peligrosos sustancias">
+      <button class="indice-titulo-head" onclick="toggleTituloIdx(this,'idx-t3')">
+        <span class="itc-num">TÍTULO III</span>
+        <span class="itc-name">Salud Ambiental y Manejo de los Desechos Peligrosos y Sustancias Potencialmente Peligrosas</span>
+        <span class="itc-arrow">▶</span>
+      </button>
+      <div class="indice-titulo-body" id="idx-t3">
+        <div class="indice-cap-item" onclick="goToSection('cap-t3-1')"><span class="cap-dot"></span><strong>Cap. I</strong> · Art. 41 · Salud Ambiental</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t3-2')"><span class="cap-dot"></span><strong>Cap. II</strong> · Arts. 42–46 · Desechos Peligrosos y Sustancias Potencialmente Peligrosas</div>
+      </div>
+    </div>
+
+    <!-- Título IV -->
+    <div class="indice-titulo-card" style="--t-color:#558B2F" data-search="titulo iv recursos naturales áreas protegidas biodiversidad forestal hídricos minerales energéticos">
+      <button class="indice-titulo-head" onclick="toggleTituloIdx(this,'idx-t4')">
+        <span class="itc-num">TÍTULO IV</span>
+        <span class="itc-name">Recursos Naturales</span>
+        <span class="itc-arrow">▶</span>
+      </button>
+      <div class="indice-titulo-body" id="idx-t4">
+        <div class="indice-cap-item" onclick="goToSection('cap-t4-1')"><span class="cap-dot"></span><strong>Cap. I</strong> · Arts. 47–50 · Naturaleza y Aprovechamiento de los Recursos Naturales</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t4-2')"><span class="cap-dot"></span><strong>Cap. II</strong> · Arts. 51–58 · Áreas Protegidas y Diversidad Biológica (SINAP)</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t4-3')"><span class="cap-dot"></span><strong>Cap. III</strong> · Arts. 59–61 · Patrimonio Forestal del Estado</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t4-4')"><span class="cap-dot"></span><strong>Cap. IV</strong> · Arts. 62–63 · Uso de Suelos</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t4-5')"><span class="cap-dot"></span><strong>Cap. V</strong> · Arts. 64–65 · Calidad del Aire</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t4-6')"><span class="cap-dot"></span><strong>Cap. VI</strong> · Arts. 66–70 · Recursos Hídricos</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t4-7')"><span class="cap-dot"></span><strong>Cap. VII</strong> · Arts. 71–74 · Recursos Hidrobiológicos</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t4-8')"><span class="cap-dot"></span><strong>Cap. VIII</strong> · Arts. 75–77 · Recursos Energéticos</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t4-9')"><span class="cap-dot"></span><strong>Cap. IX</strong> · Arts. 78–81 · Recursos Minerales</div>
+      </div>
+    </div>
+
+    <!-- Título V -->
+    <div class="indice-titulo-card" style="--t-color:#0277BD" data-search="titulo v cambio climático adaptación mitigación">
+      <button class="indice-titulo-head" onclick="toggleTituloIdx(this,'idx-t5')">
+        <span class="itc-num">TÍTULO V</span>
+        <span class="itc-name">Cambio Climático</span>
+        <span class="itc-arrow">▶</span>
+      </button>
+      <div class="indice-titulo-body" id="idx-t5">
+        <div class="indice-cap-item" onclick="goToSection('cap-t5-1')"><span class="cap-dot"></span><strong>Cap. I</strong> · Arts. 82–85 · Adaptación al Cambio Climático</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t5-2')"><span class="cap-dot"></span><strong>Cap. II</strong> · Arts. 86–88 · Mitigación del Cambio Climático Global</div>
+      </div>
+    </div>
+
+    <!-- Título VI -->
+    <div class="indice-titulo-card" style="--t-color:#6A1B9A" data-search="titulo vi actividades ambientalmente sostenibles ecoturismo">
+      <button class="indice-titulo-head" onclick="toggleTituloIdx(this,'idx-t6')">
+        <span class="itc-num">TÍTULO VI</span>
+        <span class="itc-name">Promoción de Actividades Ambientalmente Sostenibles</span>
+        <span class="itc-arrow">▶</span>
+      </button>
+      <div class="indice-titulo-body" id="idx-t6">
+        <div class="indice-cap-item" onclick="goToSection('art-89')"><span class="cap-dot"></span><strong>Art. 89</strong> · Ecoturismo y áreas protegidas</div>
+        <div class="indice-cap-item" onclick="goToSection('art-90')"><span class="cap-dot"></span><strong>Art. 90</strong> · Comunidades locales — organizaciones de base comunitaria</div>
+        <div class="indice-cap-item" onclick="goToSection('art-91')"><span class="cap-dot"></span><strong>Art. 91</strong> · Iniciativa privada sostenible</div>
+      </div>
+    </div>
+
+    <!-- Título VII -->
+    <div class="indice-titulo-card" style="--t-color:#E65100" data-search="titulo vii comarcas pueblos indígenas recursos naturales consulta">
+      <button class="indice-titulo-head" onclick="toggleTituloIdx(this,'idx-t7')">
+        <span class="itc-num">TÍTULO VII</span>
+        <span class="itc-name">Comarcas y Pueblos Indígenas</span>
+        <span class="itc-arrow">▶</span>
+      </button>
+      <div class="indice-titulo-body" id="idx-t7">
+        <div class="indice-cap-item" onclick="goToSection('art-92')"><span class="cap-dot"></span><strong>Art. 92</strong> · Coordinación con autoridades tradicionales</div>
+        <div class="indice-cap-item" onclick="goToSection('art-93')"><span class="cap-dot"></span><strong>Art. 93</strong> · Conocimientos y prácticas tradicionales — biodiversidad</div>
+        <div class="indice-cap-item" onclick="goToSection('art-94')"><span class="cap-dot"></span><strong>Art. 94</strong> · Derecho al uso y aprovechamiento tradicional</div>
+        <div class="indice-cap-item" onclick="goToSection('art-95')"><span class="cap-dot"></span><strong>Art. 95</strong> · Estudios en tierras indígenas</div>
+        <div class="indice-cap-item" onclick="goToSection('art-96')"><span class="cap-dot"></span><strong>Art. 96</strong> · Cementerios y sitios sagrados</div>
+        <div class="indice-cap-item" onclick="goToSection('art-97')"><span class="cap-dot"></span><strong>Art. 97</strong> · Autorización para aprovechamiento de recursos</div>
+        <div class="indice-cap-item" onclick="goToSection('art-98')"><span class="cap-dot"></span><strong>Art. 98</strong> · Procedimientos de consulta</div>
+        <div class="indice-cap-item" onclick="goToSection('art-99')"><span class="cap-dot"></span><strong>Art. 99</strong> · Preferencia a proyectos de comunidades indígenas</div>
+        <div class="indice-cap-item" onclick="goToSection('art-100')"><span class="cap-dot"></span><strong>Art. 100</strong> · Participación en beneficios económicos</div>
+      </div>
+    </div>
+
+    <!-- Título VIII -->
+    <div class="indice-titulo-card" style="--t-color:#B71C1C" data-search="titulo viii responsabilidad ambiental administrativa civil penal sanciones fiscalía jueces">
+      <button class="indice-titulo-head" onclick="toggleTituloIdx(this,'idx-t8')">
+        <span class="itc-num">TÍTULO VIII</span>
+        <span class="itc-name">Responsabilidad Ambiental</span>
+        <span class="itc-arrow">▶</span>
+      </button>
+      <div class="indice-titulo-body" id="idx-t8">
+        <div class="indice-cap-item" onclick="goToSection('cap-t8-1')"><span class="cap-dot"></span><strong>Cap. I</strong> · Arts. 101–110 · Obligaciones</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t8-2')"><span class="cap-dot"></span><strong>Cap. II</strong> · Art. 111 · Responsabilidad Administrativa</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t8-3')"><span class="cap-dot"></span><strong>Cap. III</strong> · Art. 112 · Fondo de Evaluación y Fiscalización Ambiental</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t8-4')"><span class="cap-dot"></span><strong>Cap. IV</strong> · Arts. 113–115 · Responsabilidad Civil</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t8-5')"><span class="cap-dot"></span><strong>Cap. V</strong> · Arts. 116–120 · Responsabilidad Penal</div>
+        <div class="indice-cap-item" onclick="goToSection('cap-t8-6')"><span class="cap-dot"></span><strong>Cap. VI</strong> · Arts. 121–122 · Jueces de Circuito</div>
+      </div>
+    </div>
+
+    <!-- Títulos IX–X -->
+    <div class="indice-titulo-card" style="--t-color:#37474F" data-search="titulo ix x disposiciones transitorias finales vigencia reglamentación">
+      <button class="indice-titulo-head" onclick="toggleTituloIdx(this,'idx-t9')">
+        <span class="itc-num">TÍTULOS IX–X</span>
+        <span class="itc-name">Disposiciones Transitorias y Finales</span>
+        <span class="itc-arrow">▶</span>
+      </button>
+      <div class="indice-titulo-body" id="idx-t9">
+        <div class="indice-cap-item" onclick="goToSection('art-123')"><span class="cap-dot"></span><strong>Art. 123</strong> · Título IX — Comisiones Consultivas Ambientales</div>
+        <div class="indice-cap-item" onclick="goToSection('art-124')"><span class="cap-dot"></span><strong>Art. 124</strong> · Título X — Reglamentación</div>
+        <div class="indice-cap-item" onclick="goToSection('art-125')"><span class="cap-dot"></span><strong>Art. 125</strong> · Título X — Adiciones, modificaciones y derogaciones</div>
+        <div class="indice-cap-item" onclick="goToSection('art-126')"><span class="cap-dot"></span><strong>Art. 126</strong> · Título X — Vigencia</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ TEXTO ═══════════════════════════════════════ -->
+<div class="page" id="page-texto">
+<div class="texto-inner">
+
+<!-- ─── TÍTULO PRELIMINAR ─── -->
+<div class="titulo-section" id="t-prelim" style="--t-color:#005C2B">
+  <div class="titulo-header">
+    <span class="titulo-num">TÍTULO PRELIMINAR</span>
+    <span class="titulo-name">Disposiciones Generales</span>
+  </div>
+
+  <div class="articulo" id="art-1">
+    <div class="art-header"><span class="art-num">Artículo 1</span></div>
+    <div class="art-body">La administración del ambiente es una obligación del Estado; por tanto, la presente Ley establece los principios y normas básicas para la protección, conservación y recuperación del ambiente, promoviendo el uso sostenible de los recursos naturales. Además, ordena la gestión ambiental y la integra a los objetivos sociales y económicos, a efecto de lograr el desarrollo humano sostenible en el país.</div>
+  </div>
+
+  <div class="articulo" id="art-2">
+    <div class="art-header"><span class="art-num">Artículo 2</span></div>
+    <div class="art-body">Para efectos de la presente Ley y sus normas complementarias y reglamentos, los siguientes términos se entenderán así:
+      <div class="def-list">
+        <div class="def-item"><span class="def-n">1.</span><span><span class="def-term">Adaptación al cambio climático.</span> Ajuste de los sistemas humanos o naturales frente a entornos nuevos o cambiantes como resultado del cambio climático.</span></div>
+        <div class="def-item"><span class="def-n">2.</span><span><span class="def-term">Adecuación ambiental.</span> Acción de manejo o corrección destinada a hacer compatible una actividad, obra o proyecto con el ambiente o para que no lo altere significativamente.</span></div>
+        <div class="def-item"><span class="def-n">3.</span><span><span class="def-term">Ambiente.</span> Conjunto o sistema de elementos naturales y artificiales de naturaleza física, química, biológica o sociocultural en constante interacción y en permanente modificación por la acción humana o natural, que rige y condiciona la existencia y desarrollo de la vida en sus múltiples manifestaciones.</span></div>
+        <div class="def-item"><span class="def-n">4.</span><span><span class="def-term">Aptitud ecológica.</span> Capacidad que tienen los ecosistemas de un área o región para soportar el desarrollo de actividades, sin que afecten su estructura trófica, diversidad biológica y ciclos de materiales.</span></div>
+        <div class="def-item"><span class="def-n">5.</span><span><span class="def-term">Área protegida.</span> Área geográfica terrestre, costera, marina o lacustre, declarada legalmente, para satisfacer objetivos de conservación, recreación, educación o investigación de los recursos naturales y culturales.</span></div>
+        <div class="def-item"><span class="def-n">6.</span><span><span class="def-term">Auditoría ambiental.</span> Metodología sistemática de evaluación de una actividad, obra o proyecto para determinar sus impactos en el ambiente, comparar el grado de cumplimiento de las normas ambientales y determinar criterios de aplicación de la legislación ambiental. Puede ser obligatoria o voluntaria, según lo establezcan la ley y su reglamentación.</span></div>
+        <div class="def-item"><span class="def-n">7.</span><span><span class="def-term">Autoridad competente o sectorial.</span> Institución pública que, por mandato legal, ejerce los poderes, la autoridad y las funciones especializadas, relacionados con aspectos parciales o componentes del medio ambiental o con el manejo sostenible de los recursos naturales.</span></div>
+        <div class="def-item"><span class="def-n">8.</span><span><span class="def-term">Autorregulación.</span> Acción por parte del responsable de una actividad, obra o proyecto de autorregularse, de conformidad con los programas establecidos, para cumplir las normas ambientales sin la intervención directa del Estado.</span></div>
+        <div class="def-item"><span class="def-n">9.</span><span><span class="def-term">Autoseguimiento y control.</span> Actividad planificada, sistemática y completa de supervisión de los efluentes, emisiones, desechos o impactos ambientales, por parte del responsable de la actividad, obra o proyecto que esté generando el impacto ambiental.</span></div>
+        <div class="def-item"><span class="def-n">10.</span><span><span class="def-term">Balance ambiental.</span> Acciones equivalentes a la disminución de emisiones o impactos ambientales, permitidas por la ley en compensación por los efectos causados al ambiente y en cumplimiento de la norma ambiental.</span></div>
+        <div class="def-item"><span class="def-n">11.</span><span><span class="def-term">Biodescubrimiento.</span> Descubrimiento relacionado a un proceso de investigación biológica.</span></div>
+        <div class="def-item"><span class="def-n">12.</span><span><span class="def-term">Bioprospección.</span> Toda actividad orientada a la exploración, recolección, búsqueda sistemática, clasificación, investigación y desarrollo de nuevas fuentes de compuestos químicos, genes, proteínas, microorganismos y otros productos con valor económico actual o potencial que se encuentren en la biodiversidad.</span></div>
+        <div class="def-item"><span class="def-n">13.</span><span><span class="def-term">Bono de cumplimiento.</span> Depósito monetario en cuenta a plazo fijo u otra modalidad, efectuado por la persona que realiza una actividad, obra o proyecto para asegurar el cumplimiento de sus obligaciones legales o contractuales, relacionadas con los impactos ambientales de la actividad, obra o proyecto.</span></div>
+        <div class="def-item"><span class="def-n">14.</span><span><span class="def-term">Calidad ambiental.</span> Estructuras y procesos ecológicos que permiten el desarrollo sostenible o racional, la conservación de la diversidad biológica y mejoramiento del nivel de vida de la población humana.</span></div>
+        <div class="def-item"><span class="def-n">15.</span><span><span class="def-term">Calidad de vida.</span> Grado en que los miembros de una sociedad humana satisfacen sus necesidades materiales y espirituales. Su calificación se fundamenta en indicadores de satisfacciones básicas y a través de juicios de valor.</span></div>
+        <div class="def-item"><span class="def-n">16.</span><span><span class="def-term">Cambio climático.</span> Importante variación estadística en el estado medio del clima o en su variabilidad, que persiste durante un periodo prolongado (normalmente decenios o incluso más). El cambio climático se puede deber a procesos naturales internos o a cambios del forzamiento externo, o bien a cambios persistentes antropogénicos en la composición de la atmósfera o en el uso de las tierras.</span></div>
+        <div class="def-item"><span class="def-n">17.</span><span><span class="def-term">Capacidad de adaptación.</span> Capacidad de un sistema para ajustarse al cambio climático (incluida la variabilidad climática y los cambios extremos) a fin de moderar los daños potenciales, aprovechar las consecuencias positivas, o soportar las consecuencias negativas.</span></div>
+        <div class="def-item"><span class="def-n">18.</span><span><span class="def-term">Capacidad de asimilación.</span> Capacidad del ambiente y sus componentes para absorber y asimilar descargas, efluentes o desechos, sin afectar sus funciones ecológicas esenciales, ni amenazar la salud humana y la de los demás seres vivos.</span></div>
+        <div class="def-item"><span class="def-n">19.</span><span><span class="def-term">Capacidad de carga.</span> Propiedad del ambiente para absorber o soportar agentes externos, sin sufrir deterioro que afecte su propia regeneración, impida su renovación natural en plazos y condiciones normales o reduzca significativamente sus funciones ecológicas.</span></div>
+        <div class="def-item"><span class="def-n">20.</span><span><span class="def-term">Cargos por contaminación.</span> Tasas por unidad contaminante basadas en el nivel del daño resultante al ambiente, las cuales deben ser pagadas por el responsable de la actividad, obra o proyecto en compensación por el daño causado.</span></div>
+        <div class="def-item"><span class="def-n">21.</span><span><span class="def-term">Cargos por contaminación presuntiva.</span> Tasas por contaminación basadas en estimaciones, y no en contaminación detectada. Se estiman con base en valores promedio de contaminación por unidades altas de producción de la industria, o en coeficientes de tecnología y tiempos de generación, para cada fuente contaminante.</span></div>
+        <div class="def-item"><span class="def-n">22.</span><span><span class="def-term">Cargo por mejoras a la propiedad.</span> Porcentaje de beneficio económico, atribuido a la apreciación del valor de la propiedad, como resultado de una inversión pública determinada, incluyendo la conservación de bosques o de ecosistemas naturales.</span></div>
+        <div class="def-item"><span class="def-n">23.</span><span><span class="def-term">Centro de información.</span> Unidad de información donde se encuentra una base de datos sistematizada.</span></div>
+        <div class="def-item"><span class="def-n">24.</span><span><span class="def-term">Concesión de administración.</span> Contrato mediante el cual se otorga a una persona natural o jurídica la facultad de realizar actividades de manejo, conservación, protección y desarrollo de un área protegida, en forma autónoma.</span></div>
+        <div class="def-item"><span class="def-n">25.</span><span><span class="def-term">Concesión de servicios.</span> Contrato mediante el cual se otorga a una persona natural o jurídica la facultad de prestar cualquier tipo de servicio dentro de un área protegida.</span></div>
+        <div class="def-item"><span class="def-n">26.</span><span><span class="def-term">Conservación.</span> Conjunto de actividades humanas cuya finalidad es garantizar el uso sostenible del ambiente, incluyendo las medidas para la preservación, mantenimiento, rehabilitación, restauración, manejo y mejoramiento de los recursos naturales del entorno.</span></div>
+        <div class="def-item"><span class="def-n">27.</span><span><span class="def-term">Consulta pública.</span> Actividad por la cual el Ministerio de Ambiente hace del conocimiento de los ciudadanos, durante un tiempo limitado, los estudios de impacto ambiental de los proyectos de alta magnitud, impacto o riesgo, a fin de que puedan hacer las observaciones y recomendaciones pertinentes relacionadas con los proyectos.</span></div>
+        <div class="def-item"><span class="def-n">28.</span><span><span class="def-term">Contaminación.</span> Presencia en el ambiente, por acción del hombre, de cualquier sustancia química, objetos, partículas, microorganismos, forma de energía o componentes del paisaje urbano o rural, en niveles o proporciones que alteren negativamente el ambiente y/o amenacen la salud humana, animal o vegetal o los ecosistemas.</span></div>
+        <div class="def-item"><span class="def-n">29.</span><span><span class="def-term">Contaminante.</span> Elemento o sustancia química o biológica, energía, radiación, vibración, ruido, fluido, o combinación de estos, presente en niveles o concentraciones que representen peligro para la seguridad y salud humana, animal, vegetal o del ambiente.</span></div>
+        <div class="def-item"><span class="def-n">30.</span><span><span class="def-term">Crédito ambiental canjeable.</span> Crédito generado por mejoras ambientales voluntarias que superen las exigencias legales y prevengan la contaminación. Este crédito puede ser utilizado para uso, venta o negociación con terceras personas, de acuerdo con la ley y su reglamentación.</span></div>
+        <div class="def-item"><span class="def-n">31.</span><span><span class="def-term">Crédito forestal canjeable.</span> Crédito obtenido por el dueño de tierras privadas en áreas críticas o frágiles, establecido por ley, mantenidas bajo manejo forestal. Este crédito es canjeable y puede ser negociado con terceras personas que pueden utilizarlo para cubrir sus obligaciones ambientales, de acuerdo con la ley y su reglamentación.</span></div>
+        <div class="def-item"><span class="def-n">32.</span><span><span class="def-term">Cronograma de cumplimiento.</span> Plan de acciones ambientales, definido por el Ministerio de Ambiente, para realizar la aplicación y el ajuste gradual a las nuevas normas y políticas del ambiente.</span></div>
+        <div class="def-item"><span class="def-n">33.</span><span><span class="def-term">Declaración de impacto ambiental.</span> Documento que constituye el primer paso de la presentación del estudio de impacto ambiental, el cual contiene la descripción del proyecto e información general, como su localización, características del entorno, impactos físicos, económicos y sociales previsibles, así como las medidas para prevenir y mitigar los diversos impactos.</span></div>
+        <div class="def-item"><span class="def-n">34.</span><span><span class="def-term">Derecho de desarrollo sostenible.</span> Instrumento de compensación que se otorga al propietario de tierra por proteger un recurso natural, total o parcial, establecido por la ley para fines de conservación o uso del suelo. Los derechos de desarrollo sostenible pueden ser adquiridos para obtener créditos ambientales o de uso de suelo.</span></div>
+        <div class="def-item"><span class="def-n">35.</span><span><span class="def-term">Derivados.</span> Compuesto bioquímico que existe naturalmente producido por la expresión genética o el metabolismo de los recursos biológicos o genéticos, incluso aunque no contenga unidades funcionales de la herencia.</span></div>
+        <div class="def-item"><span class="def-n">36.</span><span><span class="def-term">Desarrollo sostenible.</span> Proceso o capacidad de una sociedad humana para satisfacer las necesidades y aspiraciones sociales, culturales, políticas, ambientales y económicas actuales, de sus miembros, sin comprometer la capacidad de las futuras generaciones para satisfacer las propias.</span></div>
+        <div class="def-item"><span class="def-n">37.</span><span><span class="def-term">Desastre ambiental.</span> Incidente o serie de incidentes que conduzcan a una grave perturbación de un sistema humano, social o ambiental, en que la integridad y la viabilidad de ese sistema se vean deterioradas y exijan una intervención y medidas de recuperación urgentes.</span></div>
+        <div class="def-item"><span class="def-n">38.</span><span><span class="def-term">Desecho.</span> Material generado o remanente de los procesos productivos o de consumo que no es utilizable, ni reutilizable, ni reciclable.</span></div>
+        <div class="def-item"><span class="def-n">39.</span><span><span class="def-term">Desecho peligroso.</span> Desecho o residuo que afecta la salud humana, incluyendo los calificados como peligrosos en los convenios internacionales ratificados por la República de Panamá o en leyes o normas especiales.</span></div>
+        <div class="def-item"><span class="def-n">40.</span><span><span class="def-term">Diversidad biológica o biodiversidad.</span> Variabilidad de organismos vivos de cualquier fuente, incluidos, entre otros, los ecosistemas terrestres y marinos. Se encuentra dentro de cada especie, entre especies y entre ecosistemas.</span></div>
+        <div class="def-item"><span class="def-n">41.</span><span><span class="def-term">Estudio de impacto ambiental.</span> Documento que resulta de la integración de variables ambientales en el diseño, formulación y ejecución de obras, actividades y proyectos; describe sus características y proporciona antecedentes fundados para la identificación, interpretación y proyección de los impactos ambientales y, además, describe las medidas para evitar, reducir, corregir, compensar y controlar los impactos adversos significativos.</span></div>
+        <div class="def-item"><span class="def-n">42.</span><span><span class="def-term">Evaluación ambiental estratégica.</span> Evaluación de la sostenibilidad ambiental de las potenciales oportunidades estratégicas y riesgos derivados de políticas, planes y programas de desarrollo local, sectorial, regional o nacional.</span></div>
+        <div class="def-item"><span class="def-n">43.</span><span><span class="def-term">Evaluación de impacto ambiental.</span> Sistema de advertencia temprana para la toma de decisiones, cuya finalidad es verificar continuamente el cumplimiento de las normas y políticas ambientales de proyectos públicos y privados. Este instrumento permite anticipar, prevenir y gestionar los impactos ambientales, así como integrar las consideraciones ambientales al diseño, formulación y ejecución de obras, actividades y proyectos.</span></div>
+        <div class="def-item"><span class="def-n">44.</span><span><span class="def-term">Guías de buenas prácticas ambientales.</span> Conjunto de herramientas que incorporan las variables ambientales y sociales complementarias a las regulaciones ambientales vigentes, estableciendo acciones de prevención, mitigación, corrección o compensación y que minimicen daños ambientales que los promotores de un proyecto, obra o actividad de desarrollo implementen a fin de garantizar la protección y prevención de daños en los factores ambientales.</span></div>
+        <div class="def-item"><span class="def-n">45.</span><span><span class="def-term">Humedal.</span> Extensión de marismas, pantanos y turberas o superficies cubiertas de agua, sean estas de régimen natural o artificial, permanente o temporal, estancado o corriente, dulce, salobre o salado, incluyendo sus zonas ribereñas o costeras adyacentes, así como las islas o extensiones de agua marina cuya profundidad en marea baja no exceda de seis metros.</span></div>
+        <div class="def-item"><span class="def-n">46.</span><span><span class="def-term">Impacto ambiental.</span> Alteración negativa o positiva del medio natural o modificado como consecuencia de actividades de desarrollo, que puede afectar la existencia de la vida humana, así como los recursos naturales renovables y no renovables del entorno.</span></div>
+        <div class="def-item"><span class="def-n">47.</span><span><span class="def-term">Interés colectivo.</span> Interés no individual que corresponde a una o a varias colectividades o grupos de personas organizadas e identificadas en función de un mismo objetivo y cualidad.</span></div>
+        <div class="def-item"><span class="def-n">48.</span><span><span class="def-term">Interés difuso.</span> Aquel que se encuentra diseminado en una colectividad, correspondiente a cada uno de sus miembros, y que no emana de títulos de propiedad, derechos o acciones concretas.</span></div>
+        <div class="def-item"><span class="def-n">49.</span><span><span class="def-term">Límites permisibles.</span> Son normas técnicas, parámetros y valores, establecidos con el objeto de proteger la salud humana, la calidad del ambiente o la integridad de sus componentes.</span></div>
+        <div class="def-item"><span class="def-n">50.</span><span><span class="def-term">Medidas de mitigación ambiental.</span> Diseño y ejecución de obras o actividades dirigidas a nulificar, atenuar, minimizar o compensar los impactos y efectos negativos que un proyecto, obra o actividad pueda generar sobre el entorno humano o natural.</span></div>
+        <div class="def-item"><span class="def-n">51.</span><span><span class="def-term">Mitigación del cambio climático.</span> Intervención antropogénica para reducir las emisiones de las fuentes o mejorar los sumideros de gases de efecto invernadero.</span></div>
+        <div class="def-item"><span class="def-n">52.</span><span><span class="def-term">Normas ambientales de absorción.</span> Regulación de los niveles, máximo y mínimo, permitidos de acuerdo con la capacidad que tiene el medio para asimilar o incorporar los componentes en sí mismo.</span></div>
+        <div class="def-item"><span class="def-n">53.</span><span><span class="def-term">Normas ambientales de emisión.</span> Valores que establecen la cantidad de emisión máxima permitida, de un contaminante, medida en la fuente emisora.</span></div>
+        <div class="def-item"><span class="def-n">54.</span><span><span class="def-term">Ordenamiento ambiental del territorio nacional.</span> Proceso de planeación, evaluación y control, dirigido a identificar y programar actividades humanas compatibles con el uso y manejo de los recursos naturales en el territorio nacional, respetando la capacidad de carga del entorno natural, para preservar y restaurar el equilibrio ecológico y proteger el ambiente, así como para garantizar el bienestar de la población.</span></div>
+        <div class="def-item"><span class="def-n">55.</span><span><span class="def-term">Organización de Base Comunitaria (OBC).</span> Organización sin fines de lucro, que tiene por objeto representar y promover valores e intereses específicos de la comunidad y realizar actividades propias del desarrollo ambientalmente sostenible.</span></div>
+        <div class="def-item"><span class="def-n">56.</span><span><span class="def-term">Preservación.</span> Conjunto de disposiciones y medidas anticipadas para mantener el <em>statu quo</em> de áreas naturales.</span></div>
+        <div class="def-item"><span class="def-n">57.</span><span><span class="def-term">Protección.</span> Conjunto de medidas y políticas para mejorar el ambiente natural, prevenir y combatir sus amenazas, y evitar su deterioro.</span></div>
+        <div class="def-item"><span class="def-n">58.</span><span><span class="def-term">Reconocimiento ambiental o línea base.</span> Descripción detallada del área de influencia de un proyecto, obra o actividad, previa a su ejecución. Forma parte del estudio de impacto ambiental.</span></div>
+        <div class="def-item"><span class="def-n">59.</span><span><span class="def-term">Recursos biológicos.</span> Recursos genéticos, los organismos o partes de ellos, las poblaciones o cualquier otro tipo del componente biótico de los ecosistemas de valor o utilidad real o potencial para la humanidad.</span></div>
+        <div class="def-item"><span class="def-n">60.</span><span><span class="def-term">Recursos genéticos.</span> Todo material de origen vegetal, animal, microbiano o de otro tipo que contenga unidades funcionales de la herencia, de valor real o potencial.</span></div>
+        <div class="def-item"><span class="def-n">61.</span><span><span class="def-term">Recursos hidrobiológicos.</span> Especies cuyo ciclo de vida se desarrolla íntegra o parcialmente en aguas marinas y continentales.</span></div>
+        <div class="def-item"><span class="def-n">62.</span><span><span class="def-term">Recursos marino-costeros.</span> Aquellos constituidos por las aguas del mar territorial, los esteros, la plataforma continental submarina, los litorales, las bahías, los estuarios, los manglares, los arrecifes, la vegetación submarina, las bellezas escénicas, los recursos bióticos y abióticos dentro de dichas aguas, así como una franja costera de 200 metros de ancho de la línea de la pleamar, paralela al litoral de las costas de los océanos Atlántico y Pacífico.</span></div>
+        <div class="def-item"><span class="def-n">63.</span><span><span class="def-term">Recursos pesqueros.</span> Recursos hidrobiológicos que son o podrían ser objeto de captura, extracción o recolección con fines de consumo, procesamiento, comercialización u obtención de cualquier otro beneficio.</span></div>
+        <div class="def-item"><span class="def-n">64.</span><span><span class="def-term">Residuo.</span> Objeto, material, sustancia resultante del consumo o uso de un bien en actividades domésticas, industriales, comerciales, institucionales, de servicios que el generador abandona, rechaza o presenta a la persona prestadora del servicio público de aseo. También es el material resultado de un proceso, el cual puede ser reciclado o reutilizado en otro proceso.</span></div>
+        <div class="def-item"><span class="def-n">65.</span><span><span class="def-term">Responsabilidad objetiva.</span> Obligación del que cause daño o contamine, directa o indirectamente, a las personas, al medio natural o a las cosas de resarcir el daño y perjuicios causados.</span></div>
+        <div class="def-item"><span class="def-n">66.</span><span><span class="def-term">Riesgo ambiental.</span> Capacidad de una acción de cualquier naturaleza que, por su ubicación, características y efectos, genera la posibilidad de causar daño al entorno o a los ecosistemas.</span></div>
+        <div class="def-item"><span class="def-n">67.</span><span><span class="def-term">Riesgo de salud.</span> Capacidad de una actividad, con posibilidad cierta o previsible de que, al realizarse, tenga efectos adversos para la salud humana.</span></div>
+        <div class="def-item"><span class="def-n">68.</span><span><span class="def-term">Salud ambiental.</span> Ámbito de actuación que regula y controla las medidas para garantizar que la salud del ser humano no sea afectada, de forma directa o indirecta, por factores naturales o inducidos por el hombre, dentro del entorno en el cual vive o se desarrolla.</span></div>
+        <div class="def-item"><span class="def-n">69.</span><span><span class="def-term">Servidumbre ecológica.</span> Acuerdo privado de voluntades, en el que el propietario de un predio se compromete, temporal o permanentemente, a cederlo en todo o en parte para cumplir con motivos de conservación ecológica acordados en beneficio de otro u otros predios públicos o privados, a título oneroso o gratuito.</span></div>
+        <div class="def-item"><span class="def-n">70.</span><span><span class="def-term">Sistema climático.</span> Totalidad de la atmósfera, la hidrósfera, la biósfera y la geósfera y las interacciones entre ellas. El sistema climático evoluciona en el tiempo bajo la influencia de su propia dinámica interna debido a forzamientos externos, como erupciones volcánicas, variaciones solares, y forzamientos inducidos por el hombre, como la composición cambiante de la atmósfera y el cambio en el uso de las tierras.</span></div>
+        <div class="def-item"><span class="def-n">71.</span><span><span class="def-term">Sociedad civil.</span> Conjunto de personas, naturales o jurídicas, titulares de un interés colectivo o difuso conforme a la presente Ley, que expresan su participación pública y social en la vida local y/o nacional.</span></div>
+        <div class="def-item"><span class="def-n">72.</span><span><span class="def-term">Supervisión, control y fiscalización.</span> Acción de seguimiento del estado del ambiente durante el desarrollo del proyecto, obra o actividad, desde su inicio hasta su cierre, para asegurar que las medidas de mitigación o conservación se lleven a la práctica y se verifique la posibilidad de que aparezcan nuevos impactos durante el periodo de ejecución del proyecto, obra o actividad.</span></div>
+        <div class="def-item"><span class="def-n">73.</span><span><span class="def-term">Sustancias potencialmente peligrosas.</span> Aquellas que, por su uso o propiedades físicas, químicas, biológicas o tóxicas, o que por sus características oxidantes, infecciosas, de explosividad, combustión espontánea, inflamabilidad, nocividad, irritabilidad o corrosividad, pueden poner en peligro la salud humana, los ecosistemas o el ambiente.</span></div>
+        <div class="def-item"><span class="def-n">74.</span><span><span class="def-term">Tasas por descarga de desechos.</span> Pagos obligatorios por descargar desechos sólidos o líquidos en sistemas o sitios de tratamiento.</span></div>
+        <div class="def-item"><span class="def-n">75.</span><span><span class="def-term">Tasas al usuario.</span> Pagos obligatorios efectuados por el usuario de recursos naturales, infraestructuras o servicios públicos, con el fin de incorporar los costos ambientales, ya sean de reposición o de agotamiento por el uso de dichos recursos.</span></div>
+        <div class="def-item"><span class="def-n">76.</span><span><span class="def-term">Viabilidad ambiental.</span> Descripción relativa a los efectos importantes de un proyecto sobre el ambiente, sean estos positivos o negativos, directos o indirectos, permanentes o temporales y acumulativos en el corto, mediano y largo plazo. Propone acciones cuyos efectos sean positivos y equivalentes al impacto adverso identificado.</span></div>
+        <div class="def-item"><span class="def-n">77.</span><span><span class="def-term">Zona costera.</span> Interfaz o espacio de transición entre dos dominios ambientales: la tierra y el mar.</span></div>
+        <div class="def-item"><span class="def-n">78.</span><span><span class="def-term">Zona de reserva.</span> Espacio geográfico declarado por la autoridad competente, con el objeto de proteger y preservar áreas de reproducción, de reclutamiento y de repoblamiento de las especies, que se consideren importantes para los objetivos de la presente Ley.</span></div>
+        <div class="def-item"><span class="def-n">79.</span><span><span class="def-term">Zona especial de manejo marino-costero.</span> Zona seleccionada de la costa, donde los ecosistemas marino-costeros constituyen ecosistemas frágiles, sitios de anidamiento o crianza, marismas, humedales, arrecifes de coral y zonas de reproducción y cría que, por sus características ecosistémicas, requieren de un manejo costero integral.</span></div>
+      </div>
+    </div>
+  </div>
+</div><!-- /t-prelim -->
+
+<!-- ─── TÍTULO I ─── -->
+<div class="titulo-section" id="t-1" style="--t-color:#1B7A3E">
+  <div class="titulo-header">
+    <span class="titulo-num">TÍTULO I</span>
+    <span class="titulo-name">Política Nacional de Ambiente</span>
+  </div>
+  <div class="cap-section" id="cap-t1-1">
+    <div class="cap-header"><span class="cap-num">Capítulo I</span><span class="cap-name">Estrategias, principios y lineamientos</span></div>
+    <div class="articulo" id="art-3"><div class="art-header"><span class="art-num">Artículo 3</span></div><div class="art-body">La Política Nacional de Ambiente constituye el conjunto de medidas, estrategias y acciones establecidas por el Estado, que orientan, condicionan y determinan el comportamiento del sector público y privado, de los agentes económicos y de la población en general, en la conservación, uso, manejo y aprovechamiento de los recursos naturales y del ambiente.</div></div>
+    <div class="articulo" id="art-4"><div class="art-header"><span class="art-num">Artículo 4</span></div><div class="art-body">Son principios y lineamientos de la Política Nacional de Ambiente los siguientes:<div class="def-list"><div class="def-item"><span class="def-n">1.</span><span>Dotar a la población, como deber del Estado, de un ambiente saludable y adecuado para la vida y el desarrollo sostenible.</span></div><div class="def-item"><span class="def-n">2.</span><span>Definir las acciones gubernamentales y no gubernamentales en el ámbito local, regional y nacional, que garanticen la eficiente y efectiva coordinación intersectorial, para la protección, conservación, mejoramiento y restauración de la calidad ambiental.</span></div><div class="def-item"><span class="def-n">3.</span><span>Incorporar la dimensión ambiental en las decisiones, acciones y estrategias económicas, sociales y culturales del Estado, así como integrar la Política Nacional de Ambiente al conjunto de políticas públicas del Estado.</span></div><div class="def-item"><span class="def-n">4.</span><span>Promover comportamientos ambientalmente sostenibles y el uso de tecnologías limpias, así como estimular acciones de reducción, reutilización, reciclaje y recuperación de desechos y apoyar la conformación de un mercado que aproveche sosteniblemente tales actitudes.</span></div><div class="def-item"><span class="def-n">5.</span><span>Dar prioridad a los mecanismos e instrumentos para la prevención de la contaminación y la restauración ambiental, en la gestión pública y privada de ambiente, divulgando información oportuna para promover el cambio de actitud.</span></div><div class="def-item"><span class="def-n">6.</span><span>Dar prioridad y favorecer los instrumentos y mecanismos de promoción, estímulos e incentivos, en el proceso de conversión del sistema productivo, hacia estilos compatibles con los principios consagrados en la presente Ley.</span></div><div class="def-item"><span class="def-n">7.</span><span>Incluir, dentro de las condiciones de otorgamiento a particulares derechos sobre recursos naturales, la obligación de compensar ecológicamente por los recursos naturales utilizados y fijar, para estos fines, el valor económico de dichos recursos, que incorpore su costo social y de conservación.</span></div><div class="def-item"><span class="def-n">8.</span><span>Promover mecanismos de solución de controversias, como mediación, arbitraje, conciliación y audiencias públicas.</span></div><div class="def-item"><span class="def-n">9.</span><span>Destinar los recursos para asegurar la viabilidad económica de la Política Nacional de Ambiente.</span></div><div class="def-item"><span class="def-n">10.</span><span>Promover medidas preventivas y reactivas, públicas y privadas, autónomas o planificadas para que la población y los ecosistemas se adapten al cambio climático. Asimismo, establecer los incentivos necesarios para facilitar la transición del Estado hacia una economía baja en carbono.</span></div></div></div></div>
+  </div>
+</div>
+
+<!-- ─── TÍTULO II ─── -->
+<div class="titulo-section" id="t-2" style="--t-color:#1565C0">
+  <div class="titulo-header"><span class="titulo-num">TÍTULO II</span><span class="titulo-name">Instrumentos para la Gestión Ambiental</span></div>
+  <div class="cap-section" id="cap-t2-1"><div class="cap-header"><span class="cap-num">Capítulo I</span><span class="cap-name">Evaluación Ambiental Estratégica</span></div>
+    <div class="articulo" id="art-5"><div class="art-header"><span class="art-num">Artículo 5</span></div><div class="art-body">El Ministerio de Ambiente hará evaluaciones ambientales estratégicas para políticas, planes y programas que supongan potenciales oportunidades estratégicas y riesgos para la conservación ambiental y el uso sostenible de los recursos naturales.<br>El Ministerio de Ambiente reglamentará este artículo, para lo cual dispondrá de un término de dos años, contado a partir de la entrada en vigencia de esta Ley.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t2-2"><div class="cap-header"><span class="cap-num">Capítulo II</span><span class="cap-name">Ordenamiento Ambiental del Territorio Nacional</span></div>
+    <div class="articulo" id="art-6"><div class="art-header"><span class="art-num">Artículo 6</span></div><div class="art-body">El Ministerio de Ambiente promoverá el establecimiento del ordenamiento ambiental del territorio nacional y velará por los usos del espacio en función de sus aptitudes ecológicas, sociales y culturales, su capacidad de carga, el inventario de recursos naturales renovables y no renovables y las necesidades de desarrollo, en coordinación con las autoridades competentes. El ordenamiento ambiental del territorio nacional se ejecutará en forma progresiva por las autoridades competentes, para propiciar las acciones tendientes a mejorar la calidad de vida. Las actividades que se autoricen no deberán perjudicar el uso o función prioritaria del área respectiva, identificada en el Programa de Ordenamiento Ambiental del Territorio Nacional.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t2-3"><div class="cap-header"><span class="cap-num">Capítulo III</span><span class="cap-name">Evaluación de Impacto Ambiental</span></div>
+    <div class="articulo" id="art-7"><div class="art-header"><span class="art-num">Artículo 7</span></div><div class="art-body">Las actividades, obras o proyectos, públicos o privados, que por su naturaleza, características, efectos, ubicación o recursos pueden generar riesgo ambiental requerirán de un estudio de impacto ambiental previo al inicio de su ejecución, de acuerdo con la reglamentación de la presente Ley. Estas actividades, obras o proyectos deberán someterse a un proceso de evaluación de impacto ambiental, incluyendo aquellos que se realicen en la cuenca del Canal y comarcas indígenas.<br>Los permisos y/o autorizaciones relativos a actividades, obras o proyectos sujetos al proceso de evaluación de impacto ambiental, otorgados por otras autoridades competentes de conformidad con la normativa aplicable, no implican la viabilidad ambiental para dicha actividad, obra o proyecto. Dichos permisos y/o autorizaciones serán otorgados una vez sea aprobado el estudio de impacto ambiental correspondiente. Los trámites preliminares o intermedios, como conceptos favorables, viabilidad, no objeción, compatibilidad, conducencia, que no impliquen una orden de proceder o inicio de ejecución de una actividad, obra o proyecto no requerirán la aprobación del estudio de impacto ambiental previo.</div></div>
+    <div class="articulo" id="art-8"><div class="art-header"><span class="art-num">Artículo 8</span></div><div class="art-body">Sin perjuicio de lo establecido en el artículo anterior, las actividades, obras o proyectos, públicos o privados, que por su naturaleza, características, efectos, ubicación o recursos y con base en los criterios de protección ambiental pueden generar riesgos ambientales bajos o moderados, esto es, que generen impactos ambientales negativos no significativos y que no conlleven riesgos ambientales negativos, previo a su ejecución, podrán optar por Guías de Buenas Prácticas Ambientales que les sean aplicables, siempre que estas hayan sido aprobadas y reglamentadas por el Ministerio de Ambiente.<br>No podrán someterse a las Guías de Buenas Prácticas Ambientales las actividades, obras o proyectos que puedan ocasionar riesgos ambientales de mediano y/o alto impacto.<br>El Ministerio de Ambiente elaborará las Guías de Buenas Prácticas Ambientales y las someterá a un proceso de participación mediante consulta pública. El Ministerio publicará, por lo menos tres veces consecutivas, en un medio escrito de circulación nacional, un aviso para que cualquier persona pueda presentar opiniones, propuestas o sugerencias dentro de un plazo de no menos de veinte días hábiles.<br>Para efectos de esta Ley, los términos riesgos ambientales bajos, moderados, medios y altos serán reglamentados por el Ministerio de Ambiente a través de un proceso participativo.</div></div>
+    <div class="articulo" id="art-9"><div class="art-header"><span class="art-num">Artículo 9</span></div><div class="art-body">El proceso de evaluación de impacto ambiental incluirá mecanismos de participación ciudadana y comprenderá las etapas siguientes:<div class="def-list"><div class="def-item"><span class="def-n">1.</span><span>La presentación, ante el Ministerio de Ambiente, de un estudio de impacto ambiental, según se trate de actividades, obras o proyectos, contenidos en la lista taxativa de la reglamentación de la presente Ley, cuyos requisitos, categoría y contenidos sean de conformidad a dicha reglamentación.</span></div><div class="def-item"><span class="def-n">2.</span><span>La revisión del estudio de impacto ambiental por el Ministerio de Ambiente.</span></div><div class="def-item"><span class="def-n">3.</span><span>La aprobación o rechazo del estudio de impacto ambiental por el Ministerio de Ambiente.</span></div><div class="def-item"><span class="def-n">4.</span><span>El seguimiento, control, fiscalización y evaluación de la ejecución del Plan de Manejo Ambiental y del estudio de impacto ambiental aprobado y del contenido de la resolución de aprobación.</span></div></div></div></div>
+    <div class="articulo" id="art-10"><div class="art-header"><span class="art-num">Artículo 10</span></div><div class="art-body">El contenido del estudio de impacto ambiental será definido por el Ministerio de Ambiente, en coordinación con las autoridades competentes, y publicado en el manual de procedimiento respectivo.</div></div>
+    <div class="articulo" id="art-11"><div class="art-header"><span class="art-num">Artículo 11</span></div><div class="art-body">Los estudios de impacto ambiental serán elaborados por personas idóneas, naturales o jurídicas, independientes de la empresa promotora de la actividad, obra o proyecto, debidamente certificadas por el Ministerio de Ambiente.</div></div>
+    <div class="articulo" id="art-12"><div class="art-header"><span class="art-num">Artículo 12</span></div><div class="art-body">El Ministerio de Ambiente hará de conocimiento público la presentación de los estudios de impacto ambiental para su consideración, y otorgará un plazo para los comentarios sobre la actividad, obra o proyecto propuesto, que será establecido en la reglamentación de acuerdo con la complejidad del proyecto, obra o actividad.</div></div>
+    <div class="articulo" id="art-13"><div class="art-header"><span class="art-num">Artículo 13</span></div><div class="art-body">Para toda actividad, obra o proyecto del Estado que, de acuerdo con esta Ley y sus reglamentos, requiera un estudio de impacto ambiental, la institución pública promotora estará obligada a incluir, en su presupuesto, los recursos para cumplir con la obligación de elaborarlo y asumir el costo que demande el cumplimiento del Plan de Manejo Ambiental y la resolución administrativa que lo aprobó.</div></div>
+    <div class="articulo" id="art-14"><div class="art-header"><span class="art-num">Artículo 14</span></div><div class="art-body">Una vez recibido el estudio de impacto ambiental, el Ministerio de Ambiente procederá a su análisis, aprobación o rechazo. El término para cumplir, ampliar y presentar los estudios de impacto ambiental será establecido mediante reglamentación de la presente Ley.</div></div>
+    <div class="articulo" id="art-15"><div class="art-header"><span class="art-num">Artículo 15</span></div><div class="art-body">Ante hallazgos de incumplimiento en la presentación o ejecución del estudio de impacto ambiental o cualquier otro instrumento de gestión ambiental que corresponda, durante inspección técnica, el Ministerio de Ambiente podrá paralizar cautelarmente las actividades del proyecto, obra o actividad de la que se trate, sin perjuicio de la imposición de las sanciones que correspondan. Asimismo, el Ministerio podrá adoptar en forma inmediata cualquier otra medida provisional tendiente a prevenir daños al ambiente y a la salud humana.</div></div>
+    <div class="articulo" id="art-16"><div class="art-header"><span class="art-num">Artículo 16</span></div><div class="art-body">Contra las decisiones del Ministerio de Ambiente cabe recurso de reconsideración, que agota la vía gubernativa.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t2-4"><div class="cap-header"><span class="cap-num">Capítulo IV</span><span class="cap-name">Normas de Calidad Ambiental</span></div>
+    <div class="articulo" id="art-17"><div class="art-header"><span class="art-num">Artículo 17</span></div><div class="art-body">El Ministerio de Ambiente dirigirá los procesos de elaboración de propuestas de normas de calidad ambiental, con la participación de las autoridades competentes y la comunidad organizada.</div></div>
+    <div class="articulo" id="art-18"><div class="art-header"><span class="art-num">Artículo 18</span></div><div class="art-body">Las normas ambientales que se emitan serán aplicadas por la autoridad competente, en forma gradual y escalonada, preferiblemente con base en procesos de autorregulación y cumplimiento voluntario por parte de las empresas, y de conformidad con el reglamento respectivo.</div></div>
+    <div class="articulo" id="art-19"><div class="art-header"><span class="art-num">Artículo 19</span></div><div class="art-body">Las normas de calidad ambiental son de obligatorio cumplimiento en todo el territorio nacional, y participarán en su ejecución las autoridades competentes, las comarcas, los municipios y la comunidad.</div></div>
+    <div class="articulo" id="art-20"><div class="art-header"><span class="art-num">Artículo 20</span></div><div class="art-body">El Órgano Ejecutivo emitirá normas de calidad ambiental de carácter transitorio, destinadas a recuperar zonas ambientalmente críticas o superar situaciones de contingencias en casos de desastre. El establecimiento de estos límites no excluye la aprobación de otras normas técnicas, parámetros, guías o directrices, orientados a prevenir el deterioro ambiental.</div></div>
+    <div class="articulo" id="art-21"><div class="art-header"><span class="art-num">Artículo 21</span></div><div class="art-body">Los decretos ejecutivos que establezcan las normas de calidad ambiental deberán fijar los cronogramas de cumplimiento, que incluirán plazos hasta de tres años para caracterizar los efluentes, emisiones o impactos ambientales y, hasta de ocho años, para realizar las acciones o introducir los cambios en los procesos o tecnologías para cumplir las normas.<br>Las autoridades municipales podrán dictar normas dentro del marco de esta Ley, las cuales deberán respetar la Constitución Política y los contratos con la Nación y serán refrendadas por el Ministerio de Ambiente.<br>Las empresas que cumplan los cronogramas antes de los plazos fijados podrán acogerse a sistemas de incentivo, de acuerdo con la ley y su reglamentación.</div></div>
+    <div class="articulo" id="art-22"><div class="art-header"><span class="art-num">Artículo 22</span></div><div class="art-body">El Ministerio de Ambiente coordinará con las autoridades competentes la formulación y ejecución de planes de prevención y descontaminación del ambiente para las zonas muy sensitivas o que sobrepasen los límites de emisión, y vigilará el fiel cumplimiento de dichos planes.</div></div>
+    <div class="articulo" id="art-23"><div class="art-header"><span class="art-num">Artículo 23</span></div><div class="art-body">Es obligación del Ministerio de Ambiente revisar todos los instrumentos económicos y de regulación del ambiente, como mínimo, cada cinco años, a fin de actualizarlos según sea necesario. En la determinación de los nuevos niveles de calidad se aplicará el principio de la gradualidad, permitiendo ajustes progresivos a dichos niveles.</div></div>
+    <div class="articulo" id="art-24"><div class="art-header"><span class="art-num">Artículo 24</span></div><div class="art-body">El Estado, a través del Ministerio de Ambiente, establecerá los parámetros para la certificación de procesos y productos ambientalmente limpios, en coordinación y con la participación de la autoridad competente, para instituciones privadas o terceros, que cumplan los parámetros exigidos. En el proceso de certificación de las emisiones contaminantes por parte de las unidades económicas, el Ministerio de Ambiente reconocerá el intercambio de créditos entre dichas unidades.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t2-5"><div class="cap-header"><span class="cap-num">Capítulo V</span><span class="cap-name">Supervisión, Control y Fiscalización Ambiental</span></div>
+    <div class="articulo" id="art-25"><div class="art-header"><span class="art-num">Artículo 25</span></div><div class="art-body">La supervisión, el control y la fiscalización de las actividades, obras y proyectos sujetos a la evaluación de impacto ambiental quedan sometidos a la presentación del Plan de Manejo Ambiental y al cumplimiento de las normas ambientales. Esta es una función inherente al Ministerio de Ambiente, la cual será ejercida junto con la autoridad competente de acuerdo con el reglamento, según sea el caso.</div></div>
+    <div class="articulo" id="art-26"><div class="art-header"><span class="art-num">Artículo 26</span></div><div class="art-body">Las inspecciones y auditorías ambientales podrán ser aleatorias o conforme a programas aprobados por el Ministerio de Ambiente, y solo podrán ser realizadas por personas naturales o jurídicas debidamente certificadas por el Ministerio. Quienes presten servicios de inspectoría o auditoría ambientales estarán sometidos, para estos efectos, a las responsabilidades previstas en la legislación vigente.</div></div>
+    <div class="articulo" id="art-27"><div class="art-header"><span class="art-num">Artículo 27</span></div><div class="art-body">La Contraloría General de la República podrá realizar las auditorías ambientales en aquellas actividades, obras o proyectos que se ejecuten con fondos públicos y bienes del Estado.</div></div>
+    <div class="articulo" id="art-28"><div class="art-header"><span class="art-num">Artículo 28</span></div><div class="art-body">El Ministerio de Ambiente coordinará con la autoridad competente la formulación y ejecución de programas de seguimiento de la calidad del ambiente y planes de cierre ambiental, con el objeto de vigilar el cumplimiento de las normas establecidas. El reglamento desarrollará los mecanismos de seguimiento y control dentro del Sistema Interinstitucional de Ambiente, al que se refiere el artículo 10 de la Ley 8 de 2015.</div></div>
+    <div class="articulo" id="art-29"><div class="art-header"><span class="art-num">Artículo 29</span></div><div class="art-body">Los titulares de actividades, obras o proyectos que estén en funcionamiento al momento de entrar en vigor las normas ambientales que se emitan, podrán realizar una auditoría ambiental con el compromiso expreso de cumplir con el Programa de Adecuación y Manejo Ambiental que se derive de dicha auditoría, el cual debe ser previamente aprobado por el Ministerio de Ambiente. En este caso, mientras se realiza la auditoría y durante la vigencia del Programa de Adecuación y Manejo Ambiental, no les serán aplicables otras normas y parámetros ambientales que los contenidos en dicho Programa.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t2-6"><div class="cap-header"><span class="cap-num">Capítulo VI</span><span class="cap-name">Información Ambiental</span></div>
+    <div class="articulo" id="art-30"><div class="art-header"><span class="art-num">Artículo 30</span></div><div class="art-body">El Sistema Nacional de Información Ambiental tiene por objeto recopilar, sistematizar, almacenar y distribuir información ambiental de los recursos naturales y de sostenibilidad ambiental del territorio nacional, entre los organismos y dependencias, públicos y privados, de forma idónea, veraz y oportuna, sobre las materias que conforman el ámbito del Sistema Interinstitucional de Ambiente y que son necesarias para la conservación ambiental y uso sostenible de los recursos naturales. Esta información es de libre acceso. Los particulares que la soliciten asumirán el costo del servicio.</div></div>
+    <div class="articulo" id="art-31"><div class="art-header"><span class="art-num">Artículo 31</span></div><div class="art-body">El Ministerio de Ambiente elaborará, al término de cada periodo de gobierno, un informe del estado del ambiente, de acuerdo con el formato y contenido que, al efecto, establezca el reglamento. Para tal fin, todo el Sistema Interinstitucional de Ambiente estará obligado a suministrar al Ministerio de Ambiente, en tiempo oportuno, la información que este requiera.</div></div>
+    <div class="articulo" id="art-32"><div class="art-header"><span class="art-num">Artículo 32</span></div><div class="art-body">El Ministerio de Ambiente, junto con la entidad competente, organizará un centro de información con una base de datos sobre normas de calidad ambiental, relacionadas con actividades comerciales, agropecuarias e industriales.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t2-7"><div class="cap-header"><span class="cap-num">Capítulo VII</span><span class="cap-name">Educación Ambiental</span></div>
+    <div class="articulo" id="art-33"><div class="art-header"><span class="art-num">Artículo 33</span></div><div class="art-body">Son deberes del Estado difundir información o programas sobre la conservación del ambiente y el aprovechamiento sostenible de los recursos naturales, así como promover actividades educativas y culturales de índole ambiental, para contribuir a complementar los valores cívicos y morales en la sociedad panameña. Los medios de comunicación podrán ofrecer su colaboración para el cumplimiento de la proyección del presente artículo.</div></div>
+    <div class="articulo" id="art-34"><div class="art-header"><span class="art-num">Artículo 34</span></div><div class="art-body">El Ministerio de Ambiente fomentará la aplicación de la Ley 38 de 2014 y cualquiera otra norma relacionada al eje transversal de educación ambiental en las comunidades, en coordinación con el Ministerio de Educación.</div></div>
+    <div class="articulo" id="art-35"><div class="art-header"><span class="art-num">Artículo 35</span></div><div class="art-body">El Ministerio de Ambiente otorgará, en los casos que se ameriten, reconocimientos ambientales para las personas naturales o jurídicas que dediquen esfuerzos a la educación ambiental.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t2-8"><div class="cap-header"><span class="cap-num">Capítulo VIII</span><span class="cap-name">Programa de Investigación Científica y Tecnológica</span></div>
+    <div class="articulo" id="art-36"><div class="art-header"><span class="art-num">Artículo 36</span></div><div class="art-body">El Estado fomentará los programas de investigación científica y tecnológica aplicada en el área ambiental, tanto en el ámbito público como privado, para la toma de decisiones en la gestión ambiental nacional en materias prioritarias para la conservación ambiental y el uso sostenible de los recursos naturales, terrestres e hidrobiológicos.</div></div>
+    <div class="articulo" id="art-37"><div class="art-header"><span class="art-num">Artículo 37</span></div><div class="art-body">El Ministerio de Ambiente coadyuvará en la elaboración y ejecución del Programa Permanente de Investigación Científica y Tecnológica, orientado a entender los aspectos de la gestión ambiental y los recursos naturales y aplicarlos a la toma de decisiones nacionales.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t2-9"><div class="cap-header"><span class="cap-num">Capítulo IX</span><span class="cap-name">Desastres y Emergencias Ambientales</span></div>
+    <div class="articulo" id="art-38"><div class="art-header"><span class="art-num">Artículo 38</span></div><div class="art-body">Son deberes del Estado y de la sociedad civil adoptar medidas para prevenir y enfrentar los desastres ambientales, así como informar inmediatamente respecto a su ocurrencia.<br>El Ministerio de Ambiente velará por la existencia de los planes de contingencia y coadyuvará en su implementación, los que se aplicarán por las autoridades competentes y la sociedad civil, en caso de desastres.</div></div>
+    <div class="articulo" id="art-39"><div class="art-header"><span class="art-num">Artículo 39</span></div><div class="art-body">El Estado declarará en emergencia ambiental las zonas afectadas por desastres ambientales, cuando la magnitud y efectos del desastre lo ameriten. En estos casos, se adoptarán las medidas especiales de ayuda, asistencia y movilización de recursos humanos y financieros, entre otros, con miras a apoyar a las poblaciones afectadas y revertir los deterioros ocasionados.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t2-10"><div class="cap-header"><span class="cap-num">Capítulo X</span><span class="cap-name">Cuenta Ambiental Nacional</span></div>
+    <div class="articulo" id="art-40"><div class="art-header"><span class="art-num">Artículo 40</span></div><div class="art-body">Es obligación del Estado valorar, en términos económicos, sociales y ecológicos, el patrimonio ambiental y natural de la Nación y establecer, como cómputo complementario de la Cuenta Nacional, el valor de dicho patrimonio. En todo proyecto que implique el uso, total o parcial, de recursos del Estado o que amerite un estudio de impacto ambiental, es obligatorio valorar el costo-beneficio de la actividad o proyecto relativo al ambiente.</div></div>
+  </div>
+</div><!-- /t-2 -->
+
+<!-- ─── TÍTULO III ─── -->
+<div class="titulo-section" id="t-3" style="--t-color:#00838F">
+  <div class="titulo-header"><span class="titulo-num">TÍTULO III</span><span class="titulo-name">Salud Ambiental y Manejo de los Desechos Peligrosos y Sustancias Potencialmente Peligrosas</span></div>
+  <div class="cap-section" id="cap-t3-1"><div class="cap-header"><span class="cap-num">Capítulo I</span><span class="cap-name">Salud Ambiental</span></div>
+    <div class="articulo" id="art-41"><div class="art-header"><span class="art-num">Artículo 41</span></div><div class="art-body">El Ministerio de Salud es la autoridad encargada de normar, vigilar, controlar y sancionar todo lo relativo a garantizar la salud humana. Asimismo, desde la perspectiva de la salud ambiental coordinará, con el Ministerio de Ambiente, las medidas técnicas y administrativas, a fin de que las alteraciones ambientales no afecten en forma directa la salud humana.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t3-2"><div class="cap-header"><span class="cap-num">Capítulo II</span><span class="cap-name">Desechos Peligrosos y Sustancias Potencialmente Peligrosas</span></div>
+    <div class="articulo" id="art-42"><div class="art-header"><span class="art-num">Artículo 42</span></div><div class="art-body">El Estado creará las condiciones legales y financieras para la inversión, pública o privada, en sistemas de tratamiento de aguas residuales con fines de reutilización, siempre que con ello no se afecten la salubridad pública ni los ecosistemas naturales. El Estado regulará estos servicios.</div></div>
+    <div class="articulo" id="art-43"><div class="art-header"><span class="art-num">Artículo 43</span></div><div class="art-body">Es deber del Estado, a través de la autoridad competente, regular y controlar el manejo diferenciado de los desechos domésticos, industriales y peligrosos, en todas sus etapas, comprendiendo, entre estas, las de generación, recolección, transporte, reciclaje y disposición final. El Estado establecerá las tasas por estos servicios.</div></div>
+    <div class="articulo" id="art-44"><div class="art-header"><span class="art-num">Artículo 44</span></div><div class="art-body">El Ministerio de Ambiente apoyará al Ministerio de Salud en la aplicación del Convenio de Basilea sobre el Control de los Movimientos Transfronterizos de los Desechos Peligrosos y su Eliminación, del Acuerdo Regional sobre Movimientos Transfronterizos de Desechos Peligrosos, del Protocolo de Montreal y de cualquier otro del que la República de Panamá sea signataria. Para estos efectos, ambas instituciones establecerán un programa conjunto, a fin de que estas sustancias no existan, no se importen, ni se distribuyan o utilicen en la República de Panamá.</div></div>
+    <div class="articulo" id="art-45"><div class="art-header"><span class="art-num">Artículo 45</span></div><div class="art-body">El Estado, a través de la autoridad competente, adoptará las medidas para asegurar que las sustancias potencialmente peligrosas sean manejadas sin poner en peligro la salud humana y el ambiente, para lo cual estarán sujetas a registro previo a su distribución comercial o utilización. En los procesos de registro de dichas sustancias, la autoridad competente mantendrá informado al Ministerio de Ambiente.<br>La autoridad competente podrá adjudicar, por medio de contrato, a los municipios, gobiernos provinciales, patronatos, fundaciones y empresas privadas, el manejo y disposición de las sustancias potencialmente peligrosas, de acuerdo con estudios previos. El procedimiento para contratos y demás actividades será regulado por el respectivo reglamento.</div></div>
+    <div class="articulo" id="art-46"><div class="art-header"><span class="art-num">Artículo 46</span></div><div class="art-body">La autoridad competente para el registro o certificado de sustancias potencialmente peligrosas negará, de plano, el registro o certificado de una sustancia prohibida en su país de fabricación u origen.</div></div>
+  </div>
+</div>
+
+<!-- ─── TÍTULO IV ─── -->
+<div class="titulo-section" id="t-4" style="--t-color:#558B2F">
+  <div class="titulo-header"><span class="titulo-num">TÍTULO IV</span><span class="titulo-name">Recursos Naturales</span></div>
+  <div class="cap-section" id="cap-t4-1"><div class="cap-header"><span class="cap-num">Capítulo I</span><span class="cap-name">Naturaleza y Aprovechamiento de los Recursos Naturales</span></div>
+    <div class="articulo" id="art-47"><div class="art-header"><span class="art-num">Artículo 47</span></div><div class="art-body">Los recursos naturales son de dominio público y de interés social, sin perjuicio de los derechos legítimamente adquiridos por los particulares. Las normas sobre recursos naturales contenidas en la presente Ley tienen el objetivo de incorporar el concepto de sostenibilidad y el de racionalidad en el aprovechamiento de los recursos naturales, así como asegurar que la protección del ambiente sea un componente permanente en la política y administración de tales recursos. Corresponde al Ministerio de Ambiente velar por que estos mandatos se cumplan, para lo cual emitirá las normas técnicas y procedimientos administrativos necesarios.</div></div>
+    <div class="articulo" id="art-48"><div class="art-header"><span class="art-num">Artículo 48</span></div><div class="art-body">Las concesiones para el aprovechamiento de los recursos naturales serán adjudicadas de acuerdo con la legislación vigente.</div></div>
+    <div class="articulo" id="art-49"><div class="art-header"><span class="art-num">Artículo 49</span></div><div class="art-body">El Ministerio de Ambiente establecerá tarifas por el aprovechamiento de los recursos naturales, las cuales serán fijadas de acuerdo con estudios técnicos y económicos que así lo justifiquen.<br>En el caso de los recursos hídricos, las tarifas serán propuestas por el Ministerio de Ambiente y fijadas por el Consejo de Gabinete.</div></div>
+    <div class="articulo" id="art-50"><div class="art-header"><span class="art-num">Artículo 50</span></div><div class="art-body">Las comarcas y pueblos indígenas y los municipios donde existan y se aprovechen o extraigan recursos naturales tendrán el deber de contribuir a su conservación, de acuerdo con los parámetros que establezca el Ministerio de Ambiente, junto con las autoridades tradicionales y los gobiernos locales, según el caso, conforme a la legislación vigente.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t4-2"><div class="cap-header"><span class="cap-num">Capítulo II</span><span class="cap-name">Áreas Protegidas y Diversidad Biológica</span></div>
+    <div class="articulo" id="art-51"><div class="art-header"><span class="art-num">Artículo 51</span></div><div class="art-body">Se crea el Sistema Nacional de Áreas Protegidas, identificado con la sigla SINAP, conformado por todas las áreas protegidas legalmente establecidas o que se establezcan por leyes, decretos, resoluciones, acuerdos municipales o convenios internacionales ratificados por la República de Panamá.<br>Las áreas protegidas son bienes de dominio público del Estado y serán reguladas por el Ministerio de Ambiente, reconociendo los compromisos internacionales ratificados por la República de Panamá relacionados con el manejo, uso y gestión de áreas protegidas.<br>Las áreas protegidas podrán ser objeto de concesiones de administración y concesiones de servicios a personas naturales y jurídicas, las cuales deberán cumplir con las respectivas consultas públicas y contemplar estudios técnicos previos. El procedimiento será regulado por reglamento.</div></div>
+    <div class="articulo" id="art-52"><div class="art-header"><span class="art-num">Artículo 52</span></div><div class="art-body">Se integran las áreas declaradas como zonas de reserva que fueron creadas por la Autoridad de los Recursos Acuáticos de Panamá al Sistema Nacional de Áreas Protegidas administrado por el Ministerio de Ambiente.</div></div>
+    <div class="articulo" id="art-53"><div class="art-header"><span class="art-num">Artículo 53</span></div><div class="art-body">El Estado apoyará la conservación y, preferentemente, las actividades de la diversidad biológica en su hábitat original, especialmente en el caso de especies y variedades silvestres de carácter singular. Complementariamente, propugnará la conservación de la diversidad biológica en instalaciones fuera de su lugar de origen.</div></div>
+    <div class="articulo" id="art-54"><div class="art-header"><span class="art-num">Artículo 54</span></div><div class="art-body">El Estado estimulará la creación de reservas naturales privadas y servidumbres ecológicas en terrenos privados, con el apoyo institucional, a través de sistemas de incentivos y mecanismos de mercado.<br>Los sistemas de incentivos serán establecidos por reglamento y sus beneficios podrán aplicarse igualmente a tierras privadas que se ubiquen dentro de los límites o zonas de amortiguamiento de áreas protegidas establecidas según ordena la ley.<br>Lo anterior aplicará siempre que el propietario del terreno privado decida de manera voluntaria adscribirse a estos sistemas.</div></div>
+    <div class="articulo" id="art-55"><div class="art-header"><span class="art-num">Artículo 55</span></div><div class="art-body">El Ministerio de Ambiente establecerá, mediante reglamento, las tarifas que se cobrarán por el uso de los servicios ambientales que presten las áreas protegidas, incluyendo los valores de amenidad, previo estudio técnico de cada área y/o servicio.</div></div>
+    <div class="articulo" id="art-56"><div class="art-header"><span class="art-num">Artículo 56</span></div><div class="art-body">El Ministerio de Ambiente elaborará un plan de concesiones de servicios y de administración en las áreas protegidas, según lo establezca el procedimiento respectivo, en un periodo de doce meses, contado a partir de la publicación en la Gaceta Oficial del texto único de la presente Ley.</div></div>
+    <div class="articulo" id="art-57"><div class="art-header"><span class="art-num">Artículo 57</span></div><div class="art-body">El Ministerio de Ambiente será el ente competente, con base en lo establecido en la presente Ley y su reglamentación, para normar, regular y controlar el acceso y uso de los recursos biológicos, genéticos y derivados en general, con excepción de la especie humana, respetando los derechos de la propiedad intelectual. Para cumplir con esta función, desarrollará e introducirá instrumentos administrativos y legales, promoverá la bioprospección y el biodescubrimiento y/o mecanismos socioeconómicos que permitan la conservación y el desarrollo sostenible de estos recursos. El derecho al aprovechamiento de cualquier recurso natural no faculta a sus titulares al aprovechamiento de los recursos genéticos contenidos en ellos.</div></div>
+    <div class="articulo" id="art-58"><div class="art-header"><span class="art-num">Artículo 58</span></div><div class="art-body">El Ministerio de Ambiente es la autoridad competente para regular las actividades y el funcionamiento de las entidades que rigen las áreas protegidas, y asumir las funciones asignadas al Ministerio de Desarrollo Agropecuario mediante la Ley 8 de 1985.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t4-3"><div class="cap-header"><span class="cap-num">Capítulo III</span><span class="cap-name">Patrimonio Forestal del Estado</span></div>
+    <div class="articulo" id="art-59"><div class="art-header"><span class="art-num">Artículo 59</span></div><div class="art-body">El inventario del patrimonio forestal del Estado: bosques naturales, bosques plantados y tierras forestales será responsabilidad del Ministerio de Ambiente, que los registrará y promoverá, ejerciendo sobre ellos una efectiva administración. El Ministerio promoverá la reforestación según los criterios que defina para ello.</div></div>
+    <div class="articulo" id="art-60"><div class="art-header"><span class="art-num">Artículo 60</span></div><div class="art-body">La tala rasa o deforestación de bosques naturales no se considerará como elemento probatorio por la autoridad competente para solicitar el reconocimiento del derecho de posesión o titulación de tierras. Cuando esta acción se realice sin el otorgamiento de permisos ni el seguimiento establecido en esta Ley, sus reglamentos y normas complementarias se constituye en infracción administrativa, sin perjuicio de las sanciones penales que correspondan. Para proceder con dicha infracción, se deberá realizar una inspección y la emisión del informe correspondiente.</div></div>
+    <div class="articulo" id="art-61"><div class="art-header"><span class="art-num">Artículo 61</span></div><div class="art-body">El Estado reconoce como servicio ambiental del bosque la captura de carbono, y establecerá los mecanismos para captar recursos financieros y económicos, mediante programas de implementación conjunta, internacionalmente acordados.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t4-4"><div class="cap-header"><span class="cap-num">Capítulo IV</span><span class="cap-name">Uso de Suelos</span></div>
+    <div class="articulo" id="art-62"><div class="art-header"><span class="art-num">Artículo 62</span></div><div class="art-body">El uso de los suelos deberá ser compatible con su vocación y aptitud ecológica, de acuerdo con los programas de ordenamiento ambiental del territorio nacional. Los usos productivos de los suelos evitarán prácticas que favorezcan la erosión, degradación o modificación de las características topográficas con efectos ambientales adversos.</div></div>
+    <div class="articulo" id="art-63"><div class="art-header"><span class="art-num">Artículo 63</span></div><div class="art-body">La realización de actividad pública o privada que, por su naturaleza, provoque o pueda provocar degradación severa de los suelos, estará sujeta a sanciones que incluirán acciones equivalentes de recuperación o mitigación, las cuales serán reglamentadas por el Ministerio de Ambiente.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t4-5"><div class="cap-header"><span class="cap-num">Capítulo V</span><span class="cap-name">Calidad del Aire</span></div>
+    <div class="articulo" id="art-64"><div class="art-header"><span class="art-num">Artículo 64</span></div><div class="art-body">El aire es un bien de dominio público. Su conservación y uso es de interés social.</div></div>
+    <div class="articulo" id="art-65"><div class="art-header"><span class="art-num">Artículo 65</span></div><div class="art-body">El Ministerio de Ambiente, junto con las entidades competentes, será la encargada de normar todo lo relativo a la calidad del aire, estableciendo programas de seguimiento controlado, los niveles y parámetros permisibles, con el objeto de proteger la salud, los recursos naturales y la calidad del ambiente.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t4-6"><div class="cap-header"><span class="cap-num">Capítulo VI</span><span class="cap-name">Recursos Hídricos</span></div>
+    <div class="articulo" id="art-66"><div class="art-header"><span class="art-num">Artículo 66</span></div><div class="art-body">Las actividades que varíen el régimen, la naturaleza o la calidad de las aguas o que alteren los cauces no se podrán realizar sin la autorización del Ministerio de Ambiente, en concordancia con lo señalado en el artículo 7 de la presente Ley.</div></div>
+    <div class="articulo" id="art-67"><div class="art-header"><span class="art-num">Artículo 67</span></div><div class="art-body">El agua es un bien de dominio público en todos sus estados. Su conservación y uso es de interés social. Sus usos se encuentran condicionados a la disponibilidad del recurso y a las necesidades reales del objeto a que se destinan.</div></div>
+    <div class="articulo" id="art-68"><div class="art-header"><span class="art-num">Artículo 68</span></div><div class="art-body">Los usuarios que aprovechen los recursos hídricos están obligados a realizar las obras necesarias para su conservación, de conformidad con el Plan de Manejo Ambiental y el contrato de concesión respectivo.</div></div>
+    <div class="articulo" id="art-69"><div class="art-header"><span class="art-num">Artículo 69</span></div><div class="art-body">El Ministerio de Ambiente creará programas especiales de manejo de cuencas, en las que, por el nivel de deterioro o por la conservación estratégica, se justifique un manejo descentralizado de sus recursos hídricos por las autoridades locales y usuarios.</div></div>
+    <div class="articulo" id="art-70"><div class="art-header"><span class="art-num">Artículo 70</span></div><div class="art-body">La administración, uso, mantenimiento y conservación del recurso hídrico de la cuenca hidrográfica del canal de Panamá los realizará la Autoridad del Canal de Panamá, en coordinación con el Ministerio de Ambiente, con base en las estrategias, políticas y programas relacionados con el manejo sostenible de los recursos naturales en dicha cuenca.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t4-7"><div class="cap-header"><span class="cap-num">Capítulo VII</span><span class="cap-name">Recursos Hidrobiológicos</span></div>
+    <div class="articulo" id="art-71"><div class="art-header"><span class="art-num">Artículo 71</span></div><div class="art-body">El Ministerio de Ambiente formulará los planes de conservación de recursos marinos y continentales y fiscalizará su cumplimiento para lograr la conservación, recuperación y uso sostenible de dichos recursos.<br>La Autoridad de los Recursos Acuáticos de Panamá elaborará y aprobará los planes de ordenamiento de los recursos acuáticos, tomando en cuenta los planes de conservación existentes.</div></div>
+    <div class="articulo" id="art-72"><div class="art-header"><span class="art-num">Artículo 72</span></div><div class="art-body">El Ministerio de Ambiente coadyuvará con la Autoridad de los Recursos Acuáticos de Panamá para asegurar que las normas sobre recursos acuáticos que esta elabore con base en sistemas de ordenamiento pesquero procuren el uso sostenible de dichos recursos.</div></div>
+    <div class="articulo" id="art-73"><div class="art-header"><span class="art-num">Artículo 73</span></div><div class="art-body">Los recursos marinos y costeros son bienes de dominio público del Estado, y su aprovechamiento, manejo y conservación estarán sujetos a las disposiciones que, para tal efecto, emita el Ministerio de Ambiente, sin perjuicio de la competencia en materia de recursos acuáticos otorgadas a la Autoridad de los Recursos Acuáticos de Panamá, de conformidad con lo que dispone la Ley 44 de 2006.</div></div>
+    <div class="articulo" id="art-74"><div class="art-header"><span class="art-num">Artículo 74</span></div><div class="art-body">El Ministerio de Ambiente y la Autoridad de los Recursos Acuáticos de Panamá darán prioridad, en sus políticas, a la conservación de ecosistemas marinos y de aguas continentales con niveles altos de diversidad biológica y productividad, tales como los ecosistemas de arrecifes de coral, estuarios, humedales y otras zonas de reproducción y cría. Las medidas de conservación de humedales establecerán la protección de las aves acuáticas migratorias que utilizan y dependen de estos ecosistemas.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t4-8"><div class="cap-header"><span class="cap-num">Capítulo VIII</span><span class="cap-name">Recursos Energéticos</span></div>
+    <div class="articulo" id="art-75"><div class="art-header"><span class="art-num">Artículo 75</span></div><div class="art-body">La política para el desarrollo de actividades de generación, transmisión y distribución de energía eléctrica será formulada por la Secretaría Nacional de Energía, en coordinación con el Ministerio de Ambiente, en lo relativo al impacto ambiental y a los recursos naturales, propiciando el desarrollo sustentable y la generación de energía limpia.</div></div>
+    <div class="articulo" id="art-76"><div class="art-header"><span class="art-num">Artículo 76</span></div><div class="art-body">El Estado promoverá y dará prioridad a los proyectos energéticos no contaminantes, a partir del uso de tecnologías limpias y energéticamente eficientes.</div></div>
+    <div class="articulo" id="art-77"><div class="art-header"><span class="art-num">Artículo 77</span></div><div class="art-body">El Ministerio de Ambiente, con la Dirección General de Hidrocarburos del Ministerio de Comercio e Industrias y el Ministerio de Salud, normarán las medidas para prevenir y controlar la contaminación, de acuerdo con lo establecido en la correspondiente evaluación de impacto ambiental.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t4-9"><div class="cap-header"><span class="cap-num">Capítulo IX</span><span class="cap-name">Recursos Minerales</span></div>
+    <div class="articulo" id="art-78"><div class="art-header"><span class="art-num">Artículo 78</span></div><div class="art-body">El Ministerio de Ambiente será el responsable de normar lo relativo a los impactos ambientales generados por la actividad minera.</div></div>
+    <div class="articulo" id="art-79"><div class="art-header"><span class="art-num">Artículo 79</span></div><div class="art-body">El titular de la actividad minera y metalúrgica es responsable por las emisiones, vertimientos y desechos que se produzcan como resultado de los procesos efectuados en sus instalaciones.</div></div>
+    <div class="articulo" id="art-80"><div class="art-header"><span class="art-num">Artículo 80</span></div><div class="art-body">El Ministerio de Ambiente, en coordinación con la autoridad competente, tendrá la responsabilidad de supervisar, controlar y vigilar la adecuada aplicación del Plan de Manejo Ambiental que corresponda.</div></div>
+    <div class="articulo" id="art-81"><div class="art-header"><span class="art-num">Artículo 81</span></div><div class="art-body">Los Planes de Manejo Ambiental o los Programas de Adecuación y Manejo Ambiental que resulten de las evaluaciones de impacto ambiental o de las auditorías ambientales para los proyectos mineros deberán ser aprobados por el Ministerio de Ambiente, que tendrá la potestad de suspender y sancionar las operaciones por el incumplimiento de las normas.</div></div>
+  </div>
+</div>
+
+<!-- ─── TÍTULO V ─── -->
+<div class="titulo-section" id="t-5" style="--t-color:#0277BD">
+  <div class="titulo-header"><span class="titulo-num">TÍTULO V</span><span class="titulo-name">Cambio Climático</span></div>
+  <div class="cap-section" id="cap-t5-1"><div class="cap-header"><span class="cap-num">Capítulo I</span><span class="cap-name">Adaptación al Cambio Climático</span></div>
+    <div class="articulo" id="art-82"><div class="art-header"><span class="art-num">Artículo 82</span></div><div class="art-body">El Estado reconoce que el cambio climático es una amenaza global importante en materia ambiental que incide en la población, los ecosistemas y todos los sectores productivos de la economía del país.</div></div>
+    <div class="articulo" id="art-83"><div class="art-header"><span class="art-num">Artículo 83</span></div><div class="art-body">El Ministerio de Ambiente, en coordinación con las autoridades competentes, impulsará iniciativas de adaptación al cambio climático que incrementen la resiliencia del país a los efectos adversos del cambio climático, haciendo especial énfasis en la población y los ecosistemas más vulnerables.</div></div>
+    <div class="articulo" id="art-84"><div class="art-header"><span class="art-num">Artículo 84</span></div><div class="art-body">El Ministerio de Ambiente, con la colaboración de otras instituciones, elaborará, publicará y actualizará periódicamente una estrategia nacional de adaptación al cambio climático.</div></div>
+    <div class="articulo" id="art-85"><div class="art-header"><span class="art-num">Artículo 85</span></div><div class="art-body">Se crea el Fondo de Adaptación al Cambio Climático que estará destinado a financiar las iniciativas priorizadas de adaptación al cambio climático global, y cuyos ingresos estarán constituidos por las donaciones y/o aportaciones de organismos nacionales o internacionales para este propósito, así como por un porcentaje de los beneficios provenientes de los proyectos de mitigación del cambio climático.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t5-2"><div class="cap-header"><span class="cap-num">Capítulo II</span><span class="cap-name">Mitigación del Cambio Climático Global</span></div>
+    <div class="articulo" id="art-86"><div class="art-header"><span class="art-num">Artículo 86</span></div><div class="art-body">El Estado reconoce su responsabilidad común, pero diferenciada de participación en la estabilización de las concentraciones de gases de efecto invernadero en la atmósfera a un nivel que impida interferencias antropógenas peligrosas en el sistema climático global.</div></div>
+    <div class="articulo" id="art-87"><div class="art-header"><span class="art-num">Artículo 87</span></div><div class="art-body">El Ministerio de Ambiente, con el apoyo de otras instituciones, elaborará y publicará periódicamente un inventario nacional de emisiones por fuentes y absorciones por sumidero de gases de efecto invernadero no controlados por el Protocolo de Montreal. Asimismo, presentará una estrategia quinquenal de desarrollo económico y social baja en carbono.</div></div>
+    <div class="articulo" id="art-88"><div class="art-header"><span class="art-num">Artículo 88</span></div><div class="art-body">El Ministerio de Ambiente establecerá los mecanismos necesarios para captar recursos financieros y económicos, mediante instrumentos nacionales e internacionales que promuevan la transición hacia un desarrollo económico bajo en carbono.</div></div>
+  </div>
+</div>
+
+<!-- ─── TÍTULO VI ─── -->
+<div class="titulo-section" id="t-6" style="--t-color:#6A1B9A">
+  <div class="titulo-header"><span class="titulo-num">TÍTULO VI</span><span class="titulo-name">Promoción de Actividades Ambientalmente Sostenibles</span></div>
+  <div class="articulo" id="art-89"><div class="art-header"><span class="art-num">Artículo 89</span></div><div class="art-body">El Ministerio de Ambiente coordinará con la Autoridad de Turismo de Panamá el establecimiento de las bases del ecoturismo, especialmente aquel dedicado a la utilización no consuntiva de recursos naturales dentro de los límites o zona de amortiguamiento del patrimonio comprendido en el Sistema Nacional de Áreas Protegidas.</div></div>
+  <div class="articulo" id="art-90"><div class="art-header"><span class="art-num">Artículo 90</span></div><div class="art-body">El Estado panameño reconoce el valor que para la gestión ambiental tiene el trabajo de las comunidades locales que se organizan para la realización de actividades que aprovechan los recursos naturales de manera sostenible.<br>El Ministerio de Ambiente tendrá, dentro de sus facultades, la atribución de reconocer la personería jurídica a las organizaciones de base comunitaria que realicen actividades propias del desarrollo ambientalmente sostenible. Estas serán inscritas en un registro numerado que para estos efectos tendrá el Ministerio. El procedimiento será regulado por reglamento, en el cual se reconocerá el principio de que, además del derecho a organizarse de acuerdo con la ley, también tienen el derecho de percibir créditos como producto de sus actividades, mientras son responsables del cuidado de los recursos naturales que utilicen para tal desarrollo.</div></div>
+  <div class="articulo" id="art-91"><div class="art-header"><span class="art-num">Artículo 91</span></div><div class="art-body">El Estado panameño reconoce el valor que para la gestión ambiental tiene la iniciativa privada que protege y aprovecha los recursos naturales de manera sostenible. Para este fin, el Ministerio de Ambiente impulsará mejores prácticas en materia de producción más limpia, eficiencia energética, construcción ecoeficiente, comunidades sostenibles, entre otras.</div></div>
+</div>
+
+<!-- ─── TÍTULO VII ─── -->
+<div class="titulo-section" id="t-7" style="--t-color:#E65100">
+  <div class="titulo-header"><span class="titulo-num">TÍTULO VII</span><span class="titulo-name">Comarcas y Pueblos Indígenas</span></div>
+  <div class="articulo" id="art-92"><div class="art-header"><span class="art-num">Artículo 92</span></div><div class="art-body">El Ministerio de Ambiente coordinará, con las autoridades tradicionales de las comarcas y pueblos indígenas, todo lo relativo al ambiente y a los recursos naturales existentes en sus territorios.</div></div>
+  <div class="articulo" id="art-93"><div class="art-header"><span class="art-num">Artículo 93</span></div><div class="art-body">El Estado respetará, preservará y mantendrá los conocimientos, las innovaciones y las prácticas de las comunidades indígenas y locales, que entrañen estilos tradicionales de vida relacionados con la conservación y la utilización sostenible de la diversidad biológica, promoviendo su más amplia aplicación con la participación de dichas comunidades, y fomentará que los beneficios derivados se compartan con estas equitativamente.</div></div>
+  <div class="articulo" id="art-94"><div class="art-header"><span class="art-num">Artículo 94</span></div><div class="art-body">Se reconoce el derecho de las comarcas y pueblos indígenas con relación al uso, manejo y aprovechamiento tradicional sostenible de los recursos naturales renovables, ubicados dentro de sus territorios. Estos recursos deberán utilizarse de acuerdo con los fines de protección y conservación del ambiente, establecidos en la Constitución Política, la presente Ley y las demás leyes nacionales.</div></div>
+  <div class="articulo" id="art-95"><div class="art-header"><span class="art-num">Artículo 95</span></div><div class="art-body">Los estudios de exploración, explotación y aprovechamiento de los recursos naturales que se autoricen en tierras ocupadas por comarcas o pueblos indígenas no deben causar detrimento a su integridad cultural, social, económica y valores espirituales.</div></div>
+  <div class="articulo" id="art-96"><div class="art-header"><span class="art-num">Artículo 96</span></div><div class="art-body">El Estado garantizará y respetará las áreas utilizadas para cementerios, sitios sagrados, cultos religiosos o similares, que constituyan valor espiritual de las comarcas o pueblos indígenas y cuya existencia resulte indispensable para preservar su identidad cultural.</div></div>
+  <div class="articulo" id="art-97"><div class="art-header"><span class="art-num">Artículo 97</span></div><div class="art-body">El aprovechamiento de los recursos naturales ubicados en tierras de las comarcas o pueblos indígenas, por parte de sus integrantes, requiere de autorización emitida por las autoridades nacionales y comarcales. El Ministerio de Ambiente velará por que el aprovechamiento de estos recursos sea para el beneficio y bienestar de los pueblos indígenas.</div></div>
+  <div class="articulo" id="art-98"><div class="art-header"><span class="art-num">Artículo 98</span></div><div class="art-body">En caso de actividades, obras o proyectos desarrollados dentro del territorio de comunidades indígenas, los procedimientos de consulta se orientarán a establecer acuerdos con los representantes de las comunidades, relativos a sus derechos y costumbres, así como a la obtención de beneficios compensatorios por el uso de sus recursos, conocimientos o tierras.</div></div>
+  <div class="articulo" id="art-99"><div class="art-header"><span class="art-num">Artículo 99</span></div><div class="art-body">Para otorgar cualquier tipo de autorización relacionada con el aprovechamiento de los recursos naturales, en las comarcas o en tierras de comunidades indígenas, se preferirán los proyectos presentados por sus miembros, siempre que cumplan los requisitos y procedimientos exigidos por las autoridades competentes.<br>Lo anterior no limita los derechos de explotación y aprovechamiento de los recursos naturales, que puede tener una empresa como consecuencia de su derecho de exploración, de acuerdo con la legislación vigente.</div></div>
+  <div class="articulo" id="art-100"><div class="art-header"><span class="art-num">Artículo 100</span></div><div class="art-body">En caso de actividades destinadas al aprovechamiento de recursos naturales en tierras de comarcas o pueblos indígenas, estos tendrán derecho a una participación de los beneficios económicos que pudieran derivarse, cuando dichos beneficios no estén contemplados en leyes vigentes.</div></div>
+</div>
+
+<!-- ─── TÍTULO VIII ─── -->
+<div class="titulo-section" id="t-8" style="--t-color:#B71C1C">
+  <div class="titulo-header"><span class="titulo-num">TÍTULO VIII</span><span class="titulo-name">Responsabilidad Ambiental</span></div>
+  <div class="cap-section" id="cap-t8-1"><div class="cap-header"><span class="cap-num">Capítulo I</span><span class="cap-name">Obligaciones</span></div>
+    <div class="articulo" id="art-101"><div class="art-header"><span class="art-num">Artículo 101</span></div><div class="art-body">Toda persona natural o jurídica está en la obligación de prevenir el daño y controlar la contaminación ambiental.</div></div>
+    <div class="articulo" id="art-102"><div class="art-header"><span class="art-num">Artículo 102</span></div><div class="art-body">La contaminación producida con infracción de los límites permisibles, o de las normas, procesos y mecanismos de prevención, control, seguimiento, evaluación, mitigación y restauración, establecidos en la presente Ley y demás normas legales vigentes, acarrea responsabilidad civil, administrativa o penal, según sea el caso.</div></div>
+    <div class="articulo" id="art-103"><div class="art-header"><span class="art-num">Artículo 103</span></div><div class="art-body">El que, mediante el uso o aprovechamiento de un recurso o por el ejercicio de una actividad, produzca daño al ambiente o a la salud humana estará obligado a reparar el daño causado, aplicar las medidas de prevención y mitigación y asumir los costos correspondientes.</div></div>
+    <div class="articulo" id="art-104"><div class="art-header"><span class="art-num">Artículo 104</span></div><div class="art-body">Toda persona natural o jurídica que emita, vierta, disponga o descargue sustancias o desechos que afecten o puedan afectar la salud humana, pongan en riesgo o causen daño al ambiente, afecten o puedan afectar los procesos ecológicos esenciales o la calidad de vida de la población tendrá responsabilidad objetiva por los daños que puedan ocasionar graves perjuicios, de conformidad con lo que dispongan las leyes especiales relacionadas con el ambiente.</div></div>
+    <div class="articulo" id="art-105"><div class="art-header"><span class="art-num">Artículo 105</span></div><div class="art-body">Los generadores de desechos peligrosos, incluyendo los radiactivos, tendrán responsabilidad solidaria con los encargados de su transporte y manejo, por los daños derivados de su manipulación en todas sus etapas, incluyendo los que ocurran durante o después de su disposición final. Los encargados del manejo solo serán responsables por los daños producidos en la etapa en la cual intervengan.</div></div>
+    <div class="articulo" id="art-106"><div class="art-header"><span class="art-num">Artículo 106</span></div><div class="art-body">La responsabilidad administrativa es independiente de la responsabilidad civil por daños al ambiente, así como de la penal que pudiera derivarse de los hechos punibles o perseguibles. Se reconocen los intereses colectivos y difusos para legitimar activamente a cualquier ciudadano u organismo civil en los procesos administrativos, civiles y penales por daños al ambiente.</div></div>
+    <div class="articulo" id="art-107"><div class="art-header"><span class="art-num">Artículo 107</span></div><div class="art-body">El incumplimiento de las normas de calidad ambiental, del estudio de impacto ambiental, su Plan de Manejo Ambiental o su resolución de aprobación, del Programa de Adecuación y Manejo Ambiental, de la presente Ley, las leyes y demás normas complementarias constituyen infracción administrativa. Dicha infracción será sancionada por el ministro de Ambiente con amonestación escrita y/o suspensión temporal o definitiva de las actividades de la empresa y/o multa, según sea el caso y la gravedad de la infracción, sin perjuicio de las sanciones principales y accesorias dispuestas en las normas complementarias existentes.</div></div>
+    <div class="articulo" id="art-108"><div class="art-header"><span class="art-num">Artículo 108</span></div><div class="art-body">Las compañías aseguradoras y reaseguradoras existentes en Panamá podrán establecer seguros de responsabilidad civil ambiental, a fin de que los empresarios puedan disponer de ellos como medio de seguridad para el resarcimiento económico del daño causado.</div></div>
+    <div class="articulo" id="art-109"><div class="art-header"><span class="art-num">Artículo 109</span></div><div class="art-body">Los informes elaborados por personal idóneo del Ministerio de Ambiente, la Contraloría General de la República o las entidades componentes del Sistema Interinstitucional de Ambiente constituyen prueba pericial y dan fe pública.</div></div>
+    <div class="articulo" id="art-110"><div class="art-header"><span class="art-num">Artículo 110</span></div><div class="art-body">Toda persona natural o jurídica, individualmente o en asociación legal, que tenga conocimiento de un hecho que presumiblemente afecte o lesione directa o indirectamente el ambiente deberá denunciarlo ante las autoridades competentes.<br>Cuando se compruebe legalmente un hecho denunciado, dentro de un proceso iniciado en razón de la denuncia ciudadana de que trata el párrafo anterior, los ingresos provenientes de las multas recaudadas serán destinados a un fondo administrado por el Ministerio de Ambiente, debidamente reglamentado y que será utilizado exclusivamente para programas y proyectos de conservación y protección del ambiente y para apoyar programas de educación ambiental.<br>La reglamentación del fondo de que trata el párrafo anterior será elaborada por el Ministerio de Ambiente con la participación de los sectores de la sociedad civil.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t8-2"><div class="cap-header"><span class="cap-num">Capítulo II</span><span class="cap-name">Responsabilidad Administrativa</span></div>
+    <div class="articulo" id="art-111"><div class="art-header"><span class="art-num">Artículo 111</span></div><div class="art-body">Las sanciones impuestas por el Ministerio de Ambiente corresponderán a la gravedad del riesgo y/o el daño ambiental generado por la infracción, la reincidencia del infractor, su actuación con posterioridad al hecho, al grado de la inversión y su situación económica. El infractor tendrá además la obligación de efectuar o asumir la limpieza, restauración, mitigación y/o compensación del daño ambiental a que haya lugar, a sus costas, según su valoración económica y fundamento técnico, sin perjuicio de las responsabilidades civiles y penales que correspondan.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t8-3"><div class="cap-header"><span class="cap-num">Capítulo III</span><span class="cap-name">Fondo de Evaluación y Fiscalización Ambiental</span></div>
+    <div class="articulo" id="art-112"><div class="art-header"><span class="art-num">Artículo 112</span></div><div class="art-body">Se crea el Fondo de Evaluación y Fiscalización Ambiental, el cual estará destinado a garantizar la calidad ambiental, la prevención y mitigación de efectos nocivos o peligrosos sobre el ambiente, la atención de emergencias ambientales y la protección, preservación, conservación o compensación de los sistemas ecológicos y el ambiente.<br>El Fondo estará integrado, entre otros, por los ingresos provenientes de sanciones, decomisos e indemnizaciones por concepto de infracción de las normas ambientales, así como por las tasas cobradas por el Ministerio de Ambiente por los servicios de evaluación y fiscalización ambiental de proyectos, obras o actividades.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t8-4"><div class="cap-header"><span class="cap-num">Capítulo IV</span><span class="cap-name">Responsabilidad Civil</span></div>
+    <div class="articulo" id="art-113"><div class="art-header"><span class="art-num">Artículo 113</span></div><div class="art-body">Las acciones judiciales propuestas por el Estado, así como por personas naturales o jurídicas que tengan por objeto la defensa del derecho a un ambiente sano, se tramitarán conforme al procedimiento sumario y no ocasionarán costas judiciales, salvo el caso de demandas temerarias.</div></div>
+    <div class="articulo" id="art-114"><div class="art-header"><span class="art-num">Artículo 114</span></div><div class="art-body">La acción civil ambiental tendrá por objeto restaurar el ambiente afectado o la indemnización por el daño causado.</div></div>
+    <div class="articulo" id="art-115"><div class="art-header"><span class="art-num">Artículo 115</span></div><div class="art-body">Las acciones ambientales civiles prescriben a los diez años de la realización o conocimiento del daño.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t8-5"><div class="cap-header"><span class="cap-num">Capítulo V</span><span class="cap-name">Responsabilidad Penal</span></div>
+    <div class="articulo" id="art-116"><div class="art-header"><span class="art-num">Artículo 116</span></div><div class="art-body">El Ministerio Público es el encargado de iniciar, investigar y practicar las pruebas que permitan descubrir al culpable o a los culpables.</div></div>
+    <div class="articulo" id="art-117"><div class="art-header"><span class="art-num">Artículo 117</span></div><div class="art-body">El proceso de instrucción sumarial lo practicará el Ministerio Público de conformidad con lo establecido en los Capítulos I, II, III, IV, V, VI, VII y IX del Título II del Libro Tercero del Código Judicial.</div></div>
+    <div class="articulo" id="art-118"><div class="art-header"><span class="art-num">Artículo 118</span></div><div class="art-body">Se crean la Fiscalía Superior del Ambiente con sede en la provincia de Panamá, una Fiscalía de Circuito para la provincia de Colón y la comarca KunaYala, con sede en la ciudad de Colón; una Fiscalía de Circuito con sede en la provincia de Panamá; una Fiscalía de Circuito para las provincias centrales, con sede en la ciudad de Penonomé; una Fiscalía de Circuito para las provincias de Chiriquí y Bocas del Toro, con sede en la ciudad de David; y una Fiscalía de Circuito para la provincia de Darién con sede en Metetí, a las que corresponderá la investigación de los delitos ambientales.</div></div>
+    <div class="articulo" id="art-119"><div class="art-header"><span class="art-num">Artículo 119</span></div><div class="art-body">Se adiciona el artículo 352g al Código Judicial, así:<br><br><strong>Artículo 352g.</strong> El Fiscal Superior del Ambiente, además de las funciones establecidas para los fiscales superiores en el Código Judicial, tendrá las siguientes atribuciones especiales:<div class="def-list"><div class="def-item"><span class="def-n">1.</span><span>Practicar todas las diligencias para el esclarecimiento de los delitos contra el ambiente, cuando por cualquier circunstancia sean afectados los recursos naturales y el ambiente.</span></div><div class="def-item"><span class="def-n">2.</span><span>Indagar a los sindicados y practicar las pruebas para el esclarecimiento del hecho punible.</span></div><div class="def-item"><span class="def-n">3.</span><span>Colaborar estrechamente con la Autoridad Nacional del Ambiente.</span></div><div class="def-item"><span class="def-n">4.</span><span>Ejercer todas las acciones necesarias y convenientes, a fin de descubrir los actos ilícitos contra el ambiente sano y libre de contaminaciones.</span></div></div></div></div>
+    <div class="articulo" id="art-120"><div class="art-header"><span class="art-num">Artículo 120</span></div><div class="art-body">Para ser Fiscal Superior del Ambiente se requiere ser de nacionalidad panameña, mayor de treinta años de edad, estar en pleno goce de los derechos civiles y políticos, tener diploma de Derecho, debidamente inscrito en el Ministerio de Educación o en la oficina que la ley señale, y certificado de idoneidad expedido por la Corte Suprema de Justicia para el ejercicio de la abogacía. Se requiere, además, haber ejercido la profesión de abogado durante diez años y tener comprobada experiencia, no menor de cinco años, en gestión ambiental.</div></div>
+  </div>
+  <div class="cap-section" id="cap-t8-6"><div class="cap-header"><span class="cap-num">Capítulo VI</span><span class="cap-name">Jueces de Circuito</span></div>
+    <div class="articulo" id="art-121"><div class="art-header"><span class="art-num">Artículo 121</span></div><div class="art-body">En el Primer Circuito Judicial de Panamá habrá un Juez de Circuito Penal, que conocerá de todos los casos ambientales que instruya el Ministerio Público; y un Juez de Circuito Civil, que conocerá de la responsabilidad ambiental, además de las funciones que, para estos cargos, establece el Código Judicial.</div></div>
+    <div class="articulo" id="art-122"><div class="art-header"><span class="art-num">Artículo 122</span></div><div class="art-body">Para ser juez de Circuito, que establece el artículo anterior, se requieren los mismos requisitos establecidos para este cargo en el Código Judicial, además de cinco años, como mínimo, de experiencia en gestión ambiental.</div></div>
+  </div>
+</div>
+
+<!-- ─── TÍTULOS IX y X ─── -->
+<div class="titulo-section" id="t-9" style="--t-color:#37474F">
+  <div class="titulo-header"><span class="titulo-num">TÍTULO IX — Disposición Transitoria / TÍTULO X — Disposiciones Finales</span><span class="titulo-name"></span></div>
+  <div class="articulo" id="art-123"><div class="art-header"><span class="art-num">Artículo 123</span><span style="font-size:0.7rem;color:#666;margin-left:8px">Título IX — Disposición Transitoria</span></div><div class="art-body">Hasta que las Comisiones Consultivas Ambientales sean establecidas, sus funciones serán asumidas por la Autoridad Nacional del Ambiente, que tendrá ciento ochenta días, a partir de la promulgación de esta Ley, para constituir las Comisiones.</div></div>
+  <div class="articulo" id="art-124"><div class="art-header"><span class="art-num">Artículo 124</span><span style="font-size:0.7rem;color:#666;margin-left:8px">Título X — Disposiciones Finales</span></div><div class="art-body">El Órgano Ejecutivo reglamentará la presente Ley en un término no mayor de doce meses, contado a partir de su promulgación.</div></div>
+  <div class="articulo" id="art-125"><div class="art-header"><span class="art-num">Artículo 125</span></div><div class="art-body">La presente Ley adiciona el artículo 352g al Código Judicial; modifica los artículos 3 y 5 de la Ley 8 de 1985; y deroga, en todas sus partes, la Ley 21 de 1986, el Decreto Ejecutivo 29 de 1983, el Decreto Ejecutivo 43 de 1983 y el Decreto Ejecutivo 31 de 1985, así como toda disposición que le sea contraria.</div></div>
+  <div class="articulo" id="art-126"><div class="art-header"><span class="art-num">Artículo 126</span></div><div class="art-body">Esta Ley entrará en vigencia a partir de su promulgación.<br><br><em>Texto Único de la Ley 41 de 1 de julio de 1998, ordenado por el artículo 83 de la Ley 8 de 25 de marzo de 2015.</em></div></div>
+</div>
+
+</div><!-- texto-inner -->
+</div><!-- page-texto -->
+
+<!-- ═══════════════════════════════════════ BÚSQUEDA ═══════════════════════════════════════ -->
+<div class="page" id="page-busqueda">
+  <div class="busqueda-inner">
+    <div class="busqueda-hero">
+      <h2>🔍 Búsqueda en la Ley 41 de 1998</h2>
+      <p style="font-size:0.85rem;opacity:.85;margin-bottom:14px">Busque por número de artículo o por palabras clave</p>
+      <div class="busqueda-form">
+        <input type="search" id="adv-search-input" placeholder="Ej: impacto ambiental, cambio climático, áreas protegidas..." onkeydown="if(event.key==='Enter')runAdvSearch()">
+        <button onclick="runAdvSearch()">Buscar</button>
+      </div>
+    </div>
+    <div class="busqueda-results" id="busqueda-results">
+      <p class="no-results">Ingrese una búsqueda para comenzar.</p>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+  <button class="bnav-btn active" id="bnav-portada" onclick="showPage('portada')"><span class="bnav-icon">🌿</span>Portada</button>
+  <button class="bnav-btn" id="bnav-indice" onclick="showPage('indice')"><span class="bnav-icon">📋</span>Índice</button>
+  <button class="bnav-btn" id="bnav-texto" onclick="showPage('texto')"><span class="bnav-icon">📖</span>Texto</button>
+  <button class="bnav-btn" id="bnav-busqueda" onclick="showPage('busqueda')"><span class="bnav-icon">🔍</span>Búsqueda</button>
+</nav>
+
+</div>
+
+<script>
+var currentPage='portada';
+var searchMatches=[];
+var searchIdx=-1;
+
+function showPage(name){
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});
+  document.querySelectorAll('.bnav-btn').forEach(function(b){b.classList.remove('active')});
+  var pg=document.getElementById('page-'+name);
+  if(pg)pg.classList.add('active');
+  var bn=document.getElementById('bnav-'+name);
+  if(bn)bn.classList.add('active');
+  currentPage=name;
+  var names={portada:'',indice:'Índice',texto:'Texto de la Ley',busqueda:'Búsqueda'};
+  var bc=document.getElementById('bc-current');
+  var sep=document.getElementById('bc-sep');
+  if(bc)bc.textContent=names[name]||'';
+  if(sep)sep.style.display=(names[name]?'':'none');
+  closeSidebar();
+}
+
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('active');
+}
+function closeSidebar(){
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('overlay').classList.remove('active');
+}
+
+function goToTitulo(id){
+  showPage('texto');
+  setTimeout(function(){
+    var el=document.getElementById(id);
+    if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+  },60);
+}
+
+function goToSection(id){
+  showPage('texto');
+  setTimeout(function(){
+    var el=document.getElementById(id);
+    if(el){
+      el.scrollIntoView({behavior:'smooth',block:'center'});
+      if(el.classList.contains('articulo')){
+        el.classList.add('highlight-art');
+        setTimeout(function(){el.classList.remove('highlight-art')},2000);
+      }
+    }
+  },60);
+}
+
+function gotoArt(){
+  var n=parseInt(document.getElementById('goto-input').value);
+  if(!n||n<1||n>126)return;
+  goToSection('art-'+n);
+}
+
+function runSearch(){
+  var q=document.getElementById('search-input').value.trim();
+  if(!q)return;
+  clearHighlights();
+  searchMatches=[];searchIdx=-1;
+  var re=new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+  var walker=document.createTreeWalker(document.getElementById('texto-inner'),NodeFilter.SHOW_TEXT);
+  var node;var toReplace=[];
+  while((node=walker.nextNode())){if(re.test(node.textContent)){toReplace.push(node);}}
+  toReplace.forEach(function(node){
+    var frag=document.createDocumentFragment();
+    var parts=node.textContent.split(re);
+    var matches=node.textContent.match(re);
+    parts.forEach(function(part,i){
+      frag.appendChild(document.createTextNode(part));
+      if(matches&&matches[i]){var mark=document.createElement('mark');mark.className='highlight';mark.textContent=matches[i];searchMatches.push(mark);frag.appendChild(mark);}
+    });
+    node.parentNode.replaceChild(frag,node);
+  });
+  var bar=document.getElementById('search-results-bar');
+  var cnt=document.getElementById('search-count');
+  if(searchMatches.length>0){
+    bar.classList.add('visible');cnt.textContent=searchMatches.length+' resultados para "'+q+'"';
+    searchIdx=0;goToMatch(0);showPage('texto');
+  }else{bar.classList.add('visible');cnt.textContent='Sin resultados para "'+q+'"';}
+}
+function goToMatch(idx){
+  searchMatches.forEach(function(m){m.classList.remove('current')});
+  if(searchMatches[idx]){searchMatches[idx].classList.add('current');searchMatches[idx].scrollIntoView({behavior:'smooth',block:'center'});}
+}
+function nextMatch(){if(!searchMatches.length)return;searchIdx=(searchIdx+1)%searchMatches.length;goToMatch(searchIdx);}
+function prevMatch(){if(!searchMatches.length)return;searchIdx=(searchIdx-1+searchMatches.length)%searchMatches.length;goToMatch(searchIdx);}
+function clearSearch(){
+  clearHighlights();
+  document.getElementById('search-results-bar').classList.remove('visible');
+  document.getElementById('search-input').value='';
+  searchMatches=[];searchIdx=-1;
+}
+function clearHighlights(){
+  document.querySelectorAll('mark.highlight').forEach(function(m){
+    var parent=m.parentNode;parent.replaceChild(document.createTextNode(m.textContent),m);parent.normalize();
+  });
+}
+
+function runAdvSearch(){
+  var q=document.getElementById('adv-search-input').value.trim().toLowerCase();
+  var results=document.getElementById('busqueda-results');
+  if(!q){results.innerHTML='<p class="no-results">Ingrese una búsqueda.</p>';return;}
+  var articles=document.querySelectorAll('.articulo');
+  var found=[];
+  var re=new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i');
+  articles.forEach(function(art){
+    var body=art.querySelector('.art-body');
+    var numEl=art.querySelector('.art-num');
+    var text=body?body.textContent:'';
+    var num=numEl?numEl.textContent:'';
+    if(re.test(text)||re.test(num)){found.push({id:art.id,num:num,text:text.substring(0,280)});}
+  });
+  if(!found.length){results.innerHTML='<p class="no-results">No se encontraron resultados para "'+q+'".</p>';return;}
+  var html='<p style="font-size:0.8rem;color:#888;margin-bottom:10px">'+found.length+' resultado(s) encontrado(s)</p>';
+  found.slice(0,50).forEach(function(r){
+    var snippet=r.text.replace(new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'),'<mark class="highlight">$1</mark>');
+    html+='<div class="result-card" onclick="goToSection(\''+r.id+'\')"><div class="result-art-num">'+r.num+'</div><div class="result-text">'+snippet+'...</div></div>';
+  });
+  if(found.length>50)html+='<p style="text-align:center;color:#999;font-size:0.8rem;margin-top:10px">Mostrando los primeros 50 de '+found.length+' resultados</p>';
+  results.innerHTML=html;
+}
+
+function toggleTituloIdx(btn,bodyId){
+  var body=document.getElementById(bodyId);
+  btn.classList.toggle('open');
+  if(body)body.classList.toggle('open');
+}
+
+function filterIndice(q){
+  q=q.toLowerCase();
+  document.querySelectorAll('.indice-titulo-card').forEach(function(card){
+    var text=card.textContent.toLowerCase();
+    card.style.display=(!q||text.includes(q))?'':'none';
+  });
+}
+</script>
+</body>
+</html>
